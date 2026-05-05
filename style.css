@@ -1133,9 +1133,7 @@ body {
 .fila-identificacion td:last-child{
     text-align: center;
 }
-/* ============================================== */
-/* ESTILOS: TARJETAS DE VARIABLES (DISEÑO MODERNO) */
-/* ============================================== */
+
 
 .seccion-tarjetas-var {
     max-width: 1300px;
@@ -1143,11 +1141,10 @@ body {
     padding: 0 20px;
 }
 
-/* Títulos principales y subtítulos */
 .var-titulo-principal {
     text-align: center;
     font-size: 2.5rem;
-    color: #f9f9f9; /* Verde azulado */
+    color: #f9f9f9; 
     font-weight: 800;
     margin-top: 40px;
     margin-bottom: 10px;
@@ -1185,7 +1182,6 @@ body {
     width: 80%;
 }
 
-/* Grid de Tarjetas */
 .var-grid {
     display: flex;
     flex-wrap: wrap;
@@ -1194,13 +1190,12 @@ body {
     margin-bottom: 50px;
 }
 
-/* Estructura de la Tarjeta */
 .tarjeta-v {
     width: 100%;
     max-width: 280px;
     background: #ffffff;
     border-radius: 16px;
-    overflow: hidden; /* Clave para que el color de arriba no se salga de los bordes redondeados */
+    overflow: hidden; 
     box-shadow: 0 8px 20px rgba(0,0,0,0.06);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
@@ -1212,7 +1207,6 @@ body {
     box-shadow: 0 15px 30px rgba(0,0,0,0.12);
 }
 
-/* Parte superior de color con Ícono */
 .tarjeta-v-top {
     height: 130px;
     display: flex;
@@ -1222,7 +1216,6 @@ body {
     color: #ffffff;
 }
 
-/* Parte inferior blanca con textos */
 .tarjeta-v-bottom {
     padding: 25px 20px;
     text-align: center;
@@ -1243,10 +1236,9 @@ body {
     font-size: 0.85rem;
     color: #777;
     margin-bottom: 25px;
-    flex-grow: 1; /* Empuja el botón hacia abajo */
+    flex-grow: 1; 
 }
 
-/* Botón "Ver Detalles" (Estilo gris claro de tu imagen) */
 .btn-tarjeta-v {
     display: inline-block;
     background-color: #f1f4f8;
@@ -1265,7 +1257,6 @@ body {
     color: #ffffff;
 }
 
-/* --- COLORES PARA LA PARTE SUPERIOR DE LAS TARJETAS --- */
 .bg-teal { background-color: #2a7173; }
 .bg-blue { background-color: #3498db; }
 .bg-navy { background-color: #34495e; }
@@ -1720,10 +1711,6 @@ body {
 }
 
 
-/* ================================= */
-/* SECCIÓN REGRESIÓN COMPLETA */
-/* ================================= */
-
 #seccion-regresion {
   width: 100%;
 }
@@ -1775,7 +1762,6 @@ body {
   letter-spacing: 0.5px;
 }
 
-/* CONTENIDO */
 .regresion-contenido-extra {
   max-width: 1300px;
   margin: 0 auto;
@@ -1802,7 +1788,6 @@ body {
   background: linear-gradient(90deg, transparent, #ffffff, transparent);
 }
 
-/* ITEMS ZIG-ZAG */
 .reg-item {
   display: grid;
   grid-template-columns: 280px minmax(0, 1fr);
@@ -1825,7 +1810,6 @@ body {
   text-align: left;
 }
 
-/* CARD */
 .reg-card {
   width: 100%;
   max-width: 280px;
@@ -1916,7 +1900,6 @@ body {
   color: #1f2937;
 }
 
-/* TEXTO */
 .reg-texto {
   max-width: 620px;
 }
@@ -1936,7 +1919,6 @@ body {
   max-width: 560px;
 }
 
-/* COLORES */
 .reg-lineal {
   background: linear-gradient(180deg, #3f94cf, #3787be);
 }
@@ -1953,7 +1935,6 @@ body {
   background: linear-gradient(180deg, #37c96a, #28b95c);
 }
 
-/* RESPONSIVE */
 @media (max-width: 980px) {
   .reg-item,
   .reg-item.reverse {
@@ -2010,3 +1991,125 @@ body {
     font-size: 0.96rem;
   }
 }
+#overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 20, 40, 0.65);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    #modal {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 44px 40px 36px;
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+      box-shadow:
+        0 30px 80px rgba(0,0,0,0.25),
+        0 0 0 1px rgba(255,255,255,0.08);
+      animation: slideUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #modal::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #0d9488, #14b8a6, #5eead4);
+    }
+
+    .icon-wrap {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0d9488, #14b8a6);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(13,148,136,0.35);
+    }
+
+    .icon-wrap svg {
+      width: 28px;
+      height: 28px;
+      fill: white;
+    }
+
+    #modal h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      color: #0f172a;
+      margin: 0 0 14px;
+      letter-spacing: -0.5px;
+    }
+
+    #modal p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      color: #475569;
+      line-height: 1.7;
+      margin: 0 0 30px;
+    }
+
+    #btn-ok {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.3px;
+      color: #ffffff;
+      background: linear-gradient(135deg, #0d9488, #14b8a6);
+      border: none;
+      border-radius: 50px;
+      padding: 14px 40px;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 0 6px 20px rgba(13,148,136,0.4);
+    }
+
+    #btn-ok:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(13,148,136,0.5);
+    }
+
+    #btn-ok:active {
+      transform: translateY(0);
+    }
+
+    .note {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      color: #94a3b8;
+      margin-top: 14px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0)   scale(1);    }
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; transform: scale(0.96); }
+    }
+
+    #overlay.closing {
+      animation: fadeIn 0.3s ease reverse forwards;
+    }
+
+    #overlay.closing #modal {
+      animation: fadeOut 0.3s ease forwards;
+    }

@@ -70,3 +70,12 @@ if (buscador && filtroTipo) {
     buscador.addEventListener("keyup", filtrarTabla);
     filtroTipo.addEventListener("change", filtrarTabla);
 }
+function cerrarModal() {
+      const overlay = document.getElementById('overlay');
+      overlay.classList.add('closing');
+      setTimeout(() => overlay.remove(), 350);
+    }
+
+    document.getElementById('overlay').addEventListener('click', function(e) {
+      if (e.target === this) cerrarModal();
+    });
