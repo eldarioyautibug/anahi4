@@ -36,6 +36,9 @@
   </div>
 <body>
 
+  <!-- Canvas global de partículas (cubre todo el fondo negro) -->
+  <canvas id="bg-particles" class="bg-particles"></canvas>
+
   <header class="header">
     <nav class="navbar">
       <div class="logo">
@@ -51,6 +54,16 @@
         <li><a onclick="navegar('inferencial', this)" class="menu-link">Estadística Inferencial</a></li>
         <li><a onclick="navegar('regresion', this)" class="menu-link">Modelos de Regresión</a></li>
         <li><a onclick="navegar('machine', this)" class="menu-link">Machine Learning</a></li>
+        <li class="nav-mas" id="nav-mas">
+          <a class="menu-link nav-mas-toggle" onclick="toggleMas(event)">
+            Más <i class="fas fa-chevron-down chevron-mas"></i>
+          </a>
+          <ul class="submenu-mas">
+            <li><a onclick="navegar('nosotros', this)" class="menu-link sub-link"><i class="fas fa-users"></i> Nosotros</a></li>
+            <li><a onclick="navegar('herramientas', this)" class="menu-link sub-link"><i class="fas fa-toolbox"></i> Herramientas Usadas</a></li>
+            <li><a onclick="navegar('conclusiones', this)" class="menu-link sub-link"><i class="fas fa-flag-checkered"></i> Conclusiones</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
   </header>
@@ -61,6 +74,7 @@
       
       <section class="hero">
         <div class="hero-overlay"></div>
+        <canvas id="hero-canvas" class="hero-canvas particle-canvas"></canvas>
         <div class="hero-content">
           <h1>Proyecto de Estadística</h1>
           <p>Producción de petróleo y gas en Brasil</p>
@@ -111,6 +125,83 @@
       </section>
 
       <section class="mapa-ubicacion" id="mapa-ubicacion">
+        <!-- SVG animado: líneas que fluyen y puntos que pulsan -->
+        <div class="mapa-svg-wrapper">
+          <svg class="mapa-svg-animado" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <!-- ── Líneas superiores (de izquierda a derecha) ── -->
+            <path class="m-linea" style="--dur:13s;--delay:0s"    fill="none" stroke="rgba(255,255,255,0.40)" stroke-width="1.8" d="M-100 180c400 100 600-200 1000 0s400 300 500 300"/>
+            <path class="m-linea" style="--dur:13s;--delay:-2.5s" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1"   d="M-100 202c400 100 600-200 1000 0s400 300 500 300"/>
+            <path class="m-linea" style="--dur:13s;--delay:-5s"   fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" d="M-100 224c400 100 600-200 1000 0s400 300 500 300"/>
+            <path class="m-linea" style="--dur:13s;--delay:-8s"   fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.6" d="M-100 246c400 100 600-200 1000 0s400 300 500 300"/>
+            <!-- ── Líneas inferiores (curva inversa) ── -->
+            <path class="m-linea" style="--dur:11s;--delay:-1s"   fill="none" stroke="rgba(255,255,255,0.38)" stroke-width="1.8" d="M-100 580c300-280 500 180 900 80s400-280 500-280"/>
+            <path class="m-linea" style="--dur:11s;--delay:-4s"   fill="none" stroke="rgba(255,255,255,0.20)" stroke-width="1"   d="M-100 602c300-280 500 180 900 80s400-280 500-280"/>
+            <path class="m-linea" style="--dur:11s;--delay:-7s"   fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" d="M-100 624c300-280 500 180 900 80s400-280 500-280"/>
+            <path class="m-linea" style="--dur:11s;--delay:-9.5s" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="0.6" d="M-100 646c300-280 500 180 900 80s400-280 500-280"/>
+            <!-- ── Líneas diagonales (derecha a izquierda) ── -->
+            <path class="m-linea" style="--dur:15s;--delay:-3s"   fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.8" d="M1300 780c-400-200-600 80-1000-80S-100 380-200 380"/>
+            <path class="m-linea" style="--dur:15s;--delay:-6s"   fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1"   d="M1300 802c-400-200-600 80-1000-80S-100 402-200 402"/>
+            <path class="m-linea" style="--dur:15s;--delay:-9s"   fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="0.7" d="M1300 824c-400-200-600 80-1000-80S-100 424-200 424"/>
+            <!-- ── Líneas centrales diagonales ── -->
+            <path class="m-linea" style="--dur:17s;--delay:-2s"   fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1.2" d="M0 0c200 150 400 300 600 400s400 100 600 0"/>
+            <path class="m-linea" style="--dur:17s;--delay:-8s"   fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="0.8" d="M0 800c200-150 400-300 600-400s400-100 600 0"/>
+            <path class="m-linea" style="--dur:19s;--delay:-4s"   fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="1"   d="M600 0c-100 200 0 400 0 800"/>
+            <path class="m-linea" style="--dur:19s;--delay:-11s"  fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="0.7" d="M620 0c100 200 0 400 0 800"/>
+            <path class="m-linea" style="--dur:21s;--delay:-6s"   fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" d="M-100 400c300-50 600 100 900-50s300 200 400 50"/>
+
+            <!-- ── Puntos — zona izquierda ── -->
+            <circle class="m-punto" cx="45"   cy="89"  r="1.5" style="--d:0s;--s:4s"/>
+            <circle class="m-punto" cx="80"   cy="320" r="2"   style="--d:0.3s;--s:3.6s"/>
+            <circle class="m-punto" cx="120"  cy="210" r="3"   style="--d:0.4s;--s:3.5s"/>
+            <circle class="m-punto" cx="30"   cy="480" r="1.5" style="--d:1.6s;--s:3.8s"/>
+            <circle class="m-punto" cx="90"   cy="30"  r="1"   style="--d:0.2s;--s:5.5s"/>
+            <circle class="m-punto" cx="55"   cy="620" r="2"   style="--d:2.2s;--s:4.1s"/>
+            <circle class="m-punto" cx="140"  cy="730" r="1.5" style="--d:0.9s;--s:5.0s"/>
+            <circle class="m-punto" cx="70"   cy="170" r="1.5" style="--d:1.4s;--s:4s"/>
+            <circle class="m-punto" cx="200"  cy="560" r="1"   style="--d:1.8s;--s:5.4s"/>
+            <!-- ── Puntos — zona centro-izquierda ── -->
+            <circle class="m-punto" cx="250"  cy="65"  r="1"   style="--d:0.8s;--s:5s"/>
+            <circle class="m-punto" cx="180"  cy="150" r="2"   style="--d:1.2s;--s:4.5s"/>
+            <circle class="m-punto" cx="280"  cy="190" r="2.5" style="--d:2s;--s:4.2s"/>
+            <circle class="m-punto" cx="210"  cy="280" r="1.5" style="--d:0.6s;--s:3.2s"/>
+            <circle class="m-punto" cx="160"  cy="80"  r="2"   style="--d:1s;--s:4.8s"/>
+            <circle class="m-punto" cx="310"  cy="400" r="1.5" style="--d:0.5s;--s:4.6s"/>
+            <circle class="m-punto" cx="240"  cy="510" r="2"   style="--d:1.3s;--s:3.9s"/>
+            <circle class="m-punto" cx="350"  cy="680" r="1"   style="--d:2.4s;--s:5.6s"/>
+            <circle class="m-punto" cx="290"  cy="750" r="2"   style="--d:0.7s;--s:4.3s"/>
+            <!-- ── Puntos — zona central ── -->
+            <circle class="m-punto" cx="440"  cy="120" r="2"   style="--d:0.3s;--s:4.3s"/>
+            <circle class="m-punto" cx="500"  cy="260" r="1.5" style="--d:1.1s;--s:3.7s"/>
+            <circle class="m-punto" cx="560"  cy="390" r="3"   style="--d:0.7s;--s:4.2s"/>
+            <circle class="m-punto" cx="480"  cy="550" r="1.5" style="--d:1.9s;--s:3.4s"/>
+            <circle class="m-punto" cx="420"  cy="690" r="2"   style="--d:0.5s;--s:5.1s"/>
+            <circle class="m-punto" cx="590"  cy="50"  r="1"   style="--d:1.5s;--s:4.9s"/>
+            <circle class="m-punto" cx="610"  cy="760" r="1.5" style="--d:2.0s;--s:5.5s"/>
+            <circle class="m-punto" cx="530"  cy="460" r="1"   style="--d:0.4s;--s:3.8s"/>
+            <circle class="m-punto" cx="465"  cy="330" r="2.5" style="--d:1.7s;--s:4.7s"/>
+            <!-- ── Puntos — zona centro-derecha ── -->
+            <circle class="m-punto" cx="680"  cy="140" r="2"   style="--d:0.9s;--s:4.4s"/>
+            <circle class="m-punto" cx="740"  cy="300" r="1.5" style="--d:0.2s;--s:3.5s"/>
+            <circle class="m-punto" cx="800"  cy="80"  r="1"   style="--d:1.1s;--s:5.2s"/>
+            <circle class="m-punto" cx="760"  cy="480" r="2.5" style="--d:1.5s;--s:4.0s"/>
+            <circle class="m-punto" cx="820"  cy="620" r="2"   style="--d:0.6s;--s:3.6s"/>
+            <circle class="m-punto" cx="660"  cy="700" r="1.5" style="--d:2.1s;--s:5.3s"/>
+            <circle class="m-punto" cx="700"  cy="560" r="1"   style="--d:0.85s;--s:4.7s"/>
+            <circle class="m-punto" cx="870"  cy="200" r="2"   style="--d:1.3s;--s:4.1s"/>
+            <circle class="m-punto" cx="840"  cy="360" r="1.5" style="--d:0.4s;--s:5.8s"/>
+            <!-- ── Puntos — zona derecha ── -->
+            <circle class="m-punto" cx="950"  cy="110" r="1.5" style="--d:1.6s;--s:4.5s"/>
+            <circle class="m-punto" cx="1000" cy="280" r="2"   style="--d:0.3s;--s:3.3s"/>
+            <circle class="m-punto" cx="980"  cy="450" r="3"   style="--d:1.0s;--s:4.6s"/>
+            <circle class="m-punto" cx="1060" cy="350" r="1"   style="--d:1.8s;--s:5.0s"/>
+            <circle class="m-punto" cx="1100" cy="580" r="2"   style="--d:0.1s;--s:4.2s"/>
+            <circle class="m-punto" cx="1150" cy="200" r="1.5" style="--d:2.3s;--s:3.7s"/>
+            <circle class="m-punto" cx="1080" cy="720" r="1"   style="--d:0.7s;--s:5.5s"/>
+            <circle class="m-punto" cx="920"  cy="650" r="2.5" style="--d:1.2s;--s:4.8s"/>
+            <circle class="m-punto" cx="1140" cy="430" r="1.5" style="--d:0.5s;--s:3.9s"/>
+            <circle class="m-punto" cx="1050" cy="60"  r="1"   style="--d:1.4s;--s:5.7s"/>
+          </svg>
+        </div>
         <div class="mapa-texto">
           <h2 class="mapa-titulo">MAPA DE<br>UBICACIÓN</h2>
           <a href="img/mapadebrazilqgis.jpeg" class="btn-mapa" target="_blank">Descargar PDF</a>
@@ -134,6 +225,7 @@
       <section class="estadistica-descriptiva" id="estadistica-descriptiva">
         <div class="descriptiva-hero">
           <div class="descriptiva-overlay"></div>
+          <canvas class="hero-canvas particle-canvas"></canvas>
           <div class="descriptiva-contenido">
             <h2>ESTADÍSTICA DESCRIPTIVA</h2>
             <p>
@@ -1563,8 +1655,8 @@
       <section class="estadistica-inferencial" id="estadistica-inferencial">
         
         <div class="inferencial-hero">
-          <div class="descriptiva-overlay"></div> 
-          
+          <div class="descriptiva-overlay"></div>
+          <canvas class="hero-canvas particle-canvas"></canvas>
           <div class="descriptiva-contenido">
             <h2>ESTADÍSTICA INFERENCIAL</h2>
           </div>
@@ -2151,6 +2243,157 @@
             <h2 style="color: #4a4a4a; font-size: 2.5rem;">Machine Learning</h2>
             <p style="color: #777;">en construccion.....</p>
         </div>
+    </div>
+
+    <!-- ═══════════════ SECCIÓN: NOSOTROS ═══════════════ -->
+    <div id="seccion-nosotros" class="pantalla">
+      <section class="seccion-premium">
+        <div class="premium-head">
+          <span class="section-tag"><i class="fas fa-users"></i> El equipo</span>
+          <h2 class="titulo-gradiente">Nosotros</h2>
+          <p class="premium-subtitle">Estudiantes de la carrera de Petróleos — FIGEMPA, Universidad Central del Ecuador. Apasionados por la estadística y el análisis de datos energéticos.</p>
+        </div>
+
+        <div class="personas-grid reveal-stagger">
+          <article class="persona-card">
+            <div class="persona-avatar" style="--avc1:#68A77C;--avc2:#8BC190">AM</div>
+            <h3>Anahi Macias</h3>
+            <p class="persona-rol">Análisis Estadístico</p>
+            <div class="persona-redes">
+              <a href="#" aria-label="github"><i class="fab fa-github"></i></a>
+              <a href="#" aria-label="linkedin"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </article>
+
+          <article class="persona-card">
+            <div class="persona-avatar" style="--avc1:#8BC190;--avc2:#C1F1B9">CY</div>
+            <h3>Caleb Yanez</h3>
+            <p class="persona-rol">Procesamiento de Datos</p>
+            <div class="persona-redes">
+              <a href="#" aria-label="github"><i class="fab fa-github"></i></a>
+              <a href="#" aria-label="linkedin"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </article>
+
+          <article class="persona-card">
+            <div class="persona-avatar" style="--avc1:#728156;--avc2:#68A77C">LR</div>
+            <h3>Leonardo Ruiz</h3>
+            <p class="persona-rol">Visualización & QGIS</p>
+            <div class="persona-redes">
+              <a href="#" aria-label="github"><i class="fab fa-github"></i></a>
+              <a href="#" aria-label="linkedin"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </article>
+
+          <article class="persona-card">
+            <div class="persona-avatar" style="--avc1:#596974;--avc2:#8BC190">AA</div>
+            <h3>Ashly Alzate</h3>
+            <p class="persona-rol">Modelos de Regresión</p>
+            <div class="persona-redes">
+              <a href="#" aria-label="github"><i class="fab fa-github"></i></a>
+              <a href="#" aria-label="linkedin"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <!-- ═══════════════ SECCIÓN: HERRAMIENTAS ═══════════════ -->
+    <div id="seccion-herramientas" class="pantalla">
+      <section class="seccion-premium">
+        <div class="premium-head">
+          <span class="section-tag"><i class="fas fa-toolbox"></i> Stack tecnológico</span>
+          <h2 class="titulo-gradiente">Herramientas Usadas</h2>
+          <p class="premium-subtitle">Las plataformas y software que dieron vida a este proyecto, desde el análisis estadístico hasta la cartografía digital.</p>
+        </div>
+
+        <div class="herramientas-grid reveal-stagger">
+          <article class="herramienta-card">
+            <div class="herramienta-logo">
+              <img src="https://cdn.simpleicons.org/rstudioide/8BC190" alt="R Studio" loading="lazy">
+            </div>
+            <h3>R Studio</h3>
+            <p>Entorno principal para el cálculo estadístico, modelos de regresión y generación de reportes en RPubs.</p>
+            <span class="chip-tech">Estadística</span>
+          </article>
+
+          <article class="herramienta-card">
+            <div class="herramienta-logo">
+              <img src="https://cdn.simpleicons.org/visualstudiocode/8BC190" alt="Visual Studio Code" loading="lazy">
+            </div>
+            <h3>Visual Studio Code</h3>
+            <p>Editor para todo el desarrollo frontend del sitio: HTML, CSS, JavaScript y control de versiones.</p>
+            <span class="chip-tech">Desarrollo Web</span>
+          </article>
+
+          <article class="herramienta-card">
+            <div class="herramienta-logo">
+              <img src="https://cdn.simpleicons.org/qgis/8BC190" alt="QGIS" loading="lazy">
+            </div>
+            <h3>QGIS</h3>
+            <p>Sistema de información geográfica para crear el mapa de ubicación de pozos petroleros y el visor interactivo.</p>
+            <span class="chip-tech">SIG / Cartografía</span>
+          </article>
+
+          <article class="herramienta-card">
+            <div class="herramienta-logo">
+              <img src="https://cdn.simpleicons.org/kaggle/8BC190" alt="Kaggle" loading="lazy">
+            </div>
+            <h3>Kaggle</h3>
+            <p>Fuente del dataset histórico (1940–2018) sobre producción de petróleo y gas en Brasil utilizado en el estudio.</p>
+            <span class="chip-tech">Dataset</span>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <!-- ═══════════════ SECCIÓN: CONCLUSIONES ═══════════════ -->
+    <div id="seccion-conclusiones" class="pantalla">
+      <section class="seccion-premium">
+        <div class="premium-head">
+          <span class="section-tag"><i class="fas fa-flag-checkered"></i> Resultados</span>
+          <h2 class="titulo-gradiente">Conclusiones</h2>
+          <p class="premium-subtitle">Hallazgos principales tras el análisis estadístico del dataset de pozos petroleros en Brasil.</p>
+        </div>
+
+        <div class="conclusiones-grid reveal-stagger">
+          <article class="conclusion-card">
+            <div class="conclusion-num">01</div>
+            <h3>Distribución Espacial</h3>
+            <p>La actividad de exploración de hidrocarburos en Brasil se concentra principalmente en las regiones del Nordeste y Sudeste, evidenciando una clara desigualdad geográfica en la explotación.</p>
+          </article>
+
+          <article class="conclusion-card">
+            <div class="conclusion-num">02</div>
+            <h3>Evolución Temporal</h3>
+            <p>El periodo 1940–2018 muestra un crecimiento sostenido de pozos perforados, con un pico de actividad notable a partir de los años 80 vinculado al desarrollo de Petrobras.</p>
+          </article>
+
+          <article class="conclusion-card">
+            <div class="conclusion-num">03</div>
+            <h3>Modelos Predictivos</h3>
+            <p>Los modelos de regresión aplicados explican adecuadamente la relación entre las variables de producción, permitiendo realizar estimaciones confiables sobre tendencias futuras.</p>
+          </article>
+
+          <article class="conclusion-card">
+            <div class="conclusion-num">04</div>
+            <h3>Calidad del Dataset</h3>
+            <p>El dataset proporcionado por Kaggle resultó robusto y completo, con 29.575 registros válidos que permitieron aplicar técnicas estadísticas descriptivas e inferenciales con fiabilidad.</p>
+          </article>
+
+          <article class="conclusion-card">
+            <div class="conclusion-num">05</div>
+            <h3>Aporte Académico</h3>
+            <p>El proyecto demuestra cómo la combinación de R, QGIS y desarrollo web permite presentar análisis estadísticos complejos de manera accesible y visualmente atractiva.</p>
+          </article>
+
+          <article class="conclusion-card">
+            <div class="conclusion-num">06</div>
+            <h3>Trabajo Futuro</h3>
+            <p>Se proyecta extender el análisis con modelos de Machine Learning para clasificación y predicción de productividad de pozos según variables geológicas y operativas.</p>
+          </article>
+        </div>
+      </section>
     </div>
 
   </main>
