@@ -50,6 +50,8 @@
 
       <ul class="nav-links" id="nav-links">
         <li><a onclick="navegar('inicio', this)" class="menu-link activo">Inicio</a></li>
+        <li><a onclick="navegar('introduccion', this)" class="menu-link">Introducción</a></li>
+        <li><a onclick="navegar('mapaweb', this)" class="menu-link">Mapa Web</a></li>
         <li><a onclick="navegar('descriptiva', this)" class="menu-link">Estadística Descriptiva</a></li>
         <li><a onclick="navegar('inferencial', this)" class="menu-link">Estadística Inferencial</a></li>
         <li><a onclick="navegar('regresion', this)" class="menu-link">Modelos de Regresión</a></li>
@@ -82,45 +84,79 @@
       </section>
 
       <section class="intro">
+        <div class="intro-content">
+          <article class="info-block">
+            <div class="number"><i class="fas fa-bullseye"></i></div>
+            <div>
+              <h2>Misión</h2>
+              <p>
+                Aplicar herramientas estadísticas y computacionales para analizar datos históricos
+                de exploración y explotación de hidrocarburos en Brasil, contribuyendo al conocimiento
+                académico del sector energético.
+              </p>
+            </div>
+          </article>
+
+          <article class="info-block">
+            <div class="number"><i class="fas fa-eye"></i></div>
+            <div>
+              <h2>Visión</h2>
+              <p>
+                Ser un referente académico en el análisis estadístico de datos del sector petrolero,
+                integrando tecnologías modernas de visualización y aprendizaje automático para la
+                comprensión de patrones energéticos en América Latina.
+              </p>
+            </div>
+          </article>
+        </div>
+
         <div class="intro-image">
-          <img src="img/imagen2.jpg" alt="Imagen representativa del proyecto" />
+          <img src="img/universidad.jpg" alt="Universidad Central del Ecuador - FIGEMPA" />
         </div>
 
         <div class="intro-content">
           <article class="info-block">
-            <div class="number">1</div>
+            <div class="number"><i class="fas fa-lightbulb"></i></div>
             <div>
-              <h2>Planteamiento del Problema</h2>
+              <h2>Motivación del Proyecto</h2>
+              <p>
+                Este proyecto nace del interés por comprender el comportamiento histórico de la
+                industria de hidrocarburos en Brasil, aprovechando un dataset público de gran riqueza.
+                A través de la estadística y el análisis de datos, buscamos generar conocimiento
+                aplicable al sector energético y demostrar el potencial de las herramientas
+                computacionales en la ingeniería de petróleos.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+    </div>
+
+    <div id="seccion-introduccion" class="pantalla">
+      <section class="introduccion-section">
+        <div class="introduccion-hero">
+          <div class="introduccion-overlay"></div>
+          <canvas class="hero-canvas particle-canvas"></canvas>
+          <div class="introduccion-contenido-hero">
+            <h2>INTRODUCCIÓN</h2>
+          </div>
+        </div>
+
+        <div class="introduccion-cuerpo">
+          <div class="intro-bloque intro-bloque--planteamiento reveal-up">
+            <div class="intro-bloque-icono"><i class="fas fa-question-circle"></i></div>
+            <div class="intro-bloque-texto">
+              <h3>Planteamiento del Problema</h3>
               <p>
                 La información sobre la exploración y explotación de hidrocarburos en Brasil es dispersa,
                 lo que dificulta entender su evolución espacial y temporal. Se requiere un análisis
                 estadístico que organice los datos históricos (1940–2018) para identificar patrones y
                 apoyar la planificación energética.
               </p>
-              <a href="https://www.kaggle.com/datasets/dtommasini/oil-gas-wells-brazil" class="btn-primary">Dataset</a>
+              <a href="https://www.kaggle.com/datasets/dtommasini/oil-gas-wells-brazil" class="btn-primary">Ver Dataset</a>
             </div>
-          </article>
-
-          <article class="info-block">
-            <div class="number">2</div>
-            <div>
-              <h2>Objetivo General</h2>
-              <p>
-                Aplicar herramientas estadísticas y de Machine Learning para analizar actividades de
-                exploración y/o explotación de hidrocarburos en Brasil mediante herramientas computacionales.
-              </p>
-            </div>
-          </article>
-
-          <article class="info-block">
-            <div class="number">3</div>
-            <div>
-              <h2>Objetivo Específico</h2>
-              <p>1. Conocer la situación actual sobre la exploración y explotación de hidrocarburos en Brasil, a través de sus características más importantes y medidas estadísticas.</p>
-              <p>2. Emplear un modelo de probabilidad para establecer conclusiones de la exploración y explotación de hidrocarburos en Brasil a partir de los resultados de la muestra.</p>
-              <p>3. Deducir relaciones entre variables de la exploración y explotación de hidrocarburos en Brasil con el fin de realizar estimaciones.</p>
-            </div>
-          </article>
+          </div>
         </div>
       </section>
 
@@ -211,6 +247,86 @@
         </div>
       </section>
 
+      <section class="introduccion-section">
+        <div class="introduccion-cuerpo">
+          <div class="intro-bloque intro-bloque--objetivo reveal-up">
+            <div class="intro-bloque-icono"><i class="fas fa-bullseye"></i></div>
+            <div class="intro-bloque-texto">
+              <h3>Objetivo General</h3>
+              <p>
+                Aplicar herramientas estadísticas y de Machine Learning para analizar actividades de
+                exploración y/o explotación de hidrocarburos en Brasil mediante herramientas computacionales.
+              </p>
+            </div>
+          </div>
+
+          <div class="intro-bloque intro-bloque--especificos reveal-up" style="transition-delay: 0.1s;">
+            <div class="intro-bloque-icono"><i class="fas fa-tasks"></i></div>
+            <div class="intro-bloque-texto">
+              <h3>Objetivos Específicos</h3>
+              <p>1. Conocer la situación actual sobre la exploración y explotación de hidrocarburos en Brasil, a través de sus características más importantes y medidas estadísticas.</p>
+              <p>2. Emplear un modelo de probabilidad para establecer conclusiones de la exploración y explotación de hidrocarburos en Brasil a partir de los resultados de la muestra.</p>
+              <p>3. Deducir relaciones entre variables de la exploración y explotación de hidrocarburos en Brasil con el fin de realizar estimaciones.</p>
+            </div>
+          </div>
+
+          <div class="intro-bloque intro-bloque--contexto reveal-up" style="transition-delay: 0.2s;">
+            <div class="intro-bloque-icono"><i class="fas fa-globe-americas"></i></div>
+            <div class="intro-bloque-texto">
+              <h3>Contexto del Sector Petrolero en Brasil</h3>
+              <p>
+                Brasil es uno de los principales productores de hidrocarburos de América Latina. Desde el
+                descubrimiento de los primeros yacimientos en la década de 1940, el país ha desarrollado una
+                infraestructura energética que abarca desde cuencas terrestres en el nordeste hasta gigantescas
+                reservas del presal en aguas profundas del Atlántico Sur.
+              </p>
+            </div>
+          </div>
+
+          <div class="intro-bloque intro-bloque--datos reveal-up" style="transition-delay: 0.3s;">
+            <div class="intro-bloque-icono"><i class="fas fa-database"></i></div>
+            <div class="intro-bloque-texto">
+              <h3>Sobre el Dataset</h3>
+              <p>
+                El conjunto de datos utilizado en este proyecto proviene de la Agência Nacional do Petróleo,
+                Gás Natural e Biocombustíveis (ANP) de Brasil y fue publicado en Kaggle por Dtommasini.
+                Contiene información de <strong>29 575 pozos</strong> perforados entre <strong>1940 y 2018</strong>,
+                con 43 variables que describen características técnicas, geográficas y operacionales de cada pozo.
+              </p>
+            </div>
+          </div>
+
+          <div class="intro-bloque intro-bloque--justif reveal-up" style="transition-delay: 0.4s;">
+            <div class="intro-bloque-icono"><i class="fas fa-lightbulb"></i></div>
+            <div class="intro-bloque-texto">
+              <h3>Justificación del Estudio</h3>
+              <p>
+                La comprensión del comportamiento histórico de la exploración y explotación de hidrocarburos
+                resulta fundamental para la planificación energética y la toma de decisiones en el sector. A
+                través de técnicas estadísticas y de aprendizaje automático, este proyecto busca extraer
+                patrones significativos que orienten futuras investigaciones y políticas energéticas.
+              </p>
+            </div>
+          </div>
+
+          <div class="intro-bloque intro-bloque--alcance reveal-up" style="transition-delay: 0.5s;">
+            <div class="intro-bloque-icono"><i class="fas fa-project-diagram"></i></div>
+            <div class="intro-bloque-texto">
+              <h3>Alcance del Proyecto</h3>
+              <p>
+                El proyecto abarca cuatro grandes áreas de análisis: <strong>Estadística Descriptiva</strong>
+                para caracterizar las variables, <strong>Estadística Inferencial</strong> para generar
+                conclusiones poblacionales a partir de la muestra, <strong>Modelos de Regresión</strong> para
+                identificar relaciones entre variables, y <strong>Machine Learning</strong> para desarrollar
+                modelos predictivos aplicados al sector.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="seccion-mapaweb" class="pantalla">
       <section class="mapa-interactivo" id="mapa-interactivo">
         <div class="interactivo-header">
           <h2 class="titulo-outline">MAPA INTERACTIVO</h2>
@@ -220,8 +336,9 @@
           <iframe src="mapa_web/index.html" title="Mapa Web QGIS Pozos Brasil"></iframe>
         </div>
       </section>
+    </div>
 
-    </div> <div id="seccion-descriptiva" class="pantalla">
+    <div id="seccion-descriptiva" class="pantalla">
       <section class="estadistica-descriptiva" id="estadistica-descriptiva">
         <div class="descriptiva-hero">
           <div class="descriptiva-overlay"></div>

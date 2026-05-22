@@ -53,8 +53,15 @@ body {
   justify-content: space-between;
 }
 
+.logo {
+  margin-right: auto;
+  padding-left: 0;
+  position: relative;
+  left: -60px;
+}
+
 .logo img {
-  height: 48px;
+  height: 35px;
 }
 
 .nav-links {
@@ -3070,10 +3077,172 @@ body {
 .btn-primary:hover::after,
 .btn-mapa:hover::after { left: 140%; }
 
-/* ─── Más densidad de estrellas en mapa ─── */
 .mapa-svg-animado {
   filter: drop-shadow(0 0 1px rgba(193, 241, 185, 0.1));
 }
 
-/* Modales encima de todo */
 #overlay { z-index: 99999 !important; }
+
+.introduccion-section {
+  width: 100%;
+}
+
+.introduccion-hero {
+  position: relative;
+  height: 500px;
+  background-image: url("img/imagen1brazil.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.introduccion-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.60);
+}
+
+.introduccion-contenido-hero {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 20px;
+}
+
+.introduccion-contenido-hero h2 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: transparent;
+  -webkit-text-stroke: 2px #ffffff;
+  text-shadow: 0 0 30px rgba(193, 241, 185, 0.3);
+}
+
+.introduccion-cuerpo {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 90px 24px 110px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.intro-bloque {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 30px;
+  align-items: flex-start;
+  padding: 36px 32px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(18,23,29,0.55) 0%, rgba(13,17,22,0.45) 100%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.30);
+  transition: transform 0.45s var(--ease-expo), border-color 0.35s ease, box-shadow 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.intro-bloque::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #8BC190, #C1F1B9, transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.55s var(--ease-expo);
+}
+
+.intro-bloque:hover {
+  transform: translateY(-6px);
+  border-color: rgba(139, 193, 144, 0.40);
+  box-shadow: 0 20px 44px rgba(0,0,0,0.45), 0 0 28px rgba(104,167,124,0.18);
+}
+
+.intro-bloque:hover::before {
+  transform: scaleX(1);
+}
+
+.intro-bloque-icono {
+  width: 68px;
+  height: 68px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(104,167,124,0.20), rgba(139,193,144,0.10));
+  border: 1px solid rgba(139, 193, 144, 0.30);
+  flex-shrink: 0;
+  transition: transform 0.4s var(--ease-back), box-shadow 0.4s ease;
+}
+
+.intro-bloque-icono i {
+  font-size: 1.8rem;
+  color: #8BC190;
+  transition: color 0.3s ease, transform 0.4s var(--ease-back);
+}
+
+.intro-bloque:hover .intro-bloque-icono {
+  transform: rotate(-8deg) scale(1.10);
+  box-shadow: 0 0 22px rgba(139, 193, 144, 0.35);
+}
+
+.intro-bloque:hover .intro-bloque-icono i {
+  color: #C1F1B9;
+  transform: scale(1.05);
+}
+
+.intro-bloque-texto h3 {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #f7f8fa;
+  margin-bottom: 12px;
+  line-height: 1.25;
+  transition: color 0.3s ease;
+}
+
+.intro-bloque:hover .intro-bloque-texto h3 {
+  color: #C1F1B9;
+}
+
+.intro-bloque-texto p {
+  color: #b5b5b5;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.intro-bloque-texto p strong {
+  color: #e7f5dc;
+}
+
+@media (max-width: 768px) {
+  .introduccion-hero {
+    height: 380px;
+  }
+
+  .introduccion-cuerpo {
+    padding: 65px 18px 85px;
+    gap: 28px;
+  }
+
+  .intro-bloque {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 26px 22px;
+  }
+
+  .intro-bloque-icono {
+    width: 56px;
+    height: 56px;
+  }
+
+  .intro-bloque-texto h3 {
+    font-size: 1.25rem;
+  }
+}
