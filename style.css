@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -373,7 +375,6 @@ body {
   display: block;
 }
 
-/*ESTADÍSTICA DESCRIPTIVA */
 .estadistica-descriptiva {
   width: 100%;
 }
@@ -1712,7 +1713,6 @@ body {
   background: #000000;
 }
 
-/* HERO */
 .regresion-hero {
   position: relative;
   height: 48vh;
@@ -2038,7 +2038,7 @@ body {
     }
 
     #modal h2 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Baloo 2', sans-serif;
       font-size: 1.75rem;
       color: #0f172a;
       margin: 0 0 14px;
@@ -2106,9 +2106,7 @@ body {
       animation: fadeOut 0.3s ease forwards;
     }
 
-/* ============================================================
-   PALETA VERDE + ANIMACIONES MEJORADAS
-   ============================================================ */
+
 
 :root {
   --g1: #E7F5DC;
@@ -2119,7 +2117,6 @@ body {
   --g6: #728156;
 }
 
-/* --- Hero canvas de partículas --- */
 .hero-canvas {
   position: absolute;
   inset: 0;
@@ -2134,7 +2131,6 @@ body {
   z-index: 3;
 }
 
-/* Animación de entrada del título hero */
 .hero-content h1 {
   animation: heroEntrada 1.3s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
@@ -2146,7 +2142,6 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* --- Números con gradiente verde --- */
 .number {
   background: linear-gradient(135deg, var(--g4), var(--g3));
   color: #0a0a0a;
@@ -2158,7 +2153,6 @@ body {
   box-shadow: 0 6px 20px rgba(104, 167, 124, 0.55);
 }
 
-/* --- Nav: subrayado y hover verde --- */
 .nav-links a::after {
   background: var(--g3);
 }
@@ -2167,14 +2161,12 @@ body {
   color: var(--g2);
 }
 
-/* --- Botón primario: glow verde en hover --- */
 .btn-primary:hover {
   background: #f0f0f0;
   transform: translateY(-3px);
   box-shadow: 0 8px 22px rgba(104, 167, 124, 0.4);
 }
 
-/* --- SVG animado en la sección mapa --- */
 .mapa-svg-wrapper {
   position: absolute;
   inset: 0;
@@ -2187,7 +2179,7 @@ body {
   height: 100%;
 }
 
-/* Líneas que se dibujan y fluyen */
+
 .m-linea {
   stroke-dasharray: 2400;
   stroke-dashoffset: 2400;
@@ -2199,7 +2191,6 @@ body {
   100% { stroke-dashoffset: -2400; }
 }
 
-/* Puntos que pulsan con brillo verde */
 .m-punto {
   fill: rgba(255, 255, 255, 0.75);
   animation: pulsarDot var(--s, 4s) ease-in-out infinite;
@@ -2216,13 +2207,11 @@ body {
   }
 }
 
-/* --- Animación flotar para la imagen del mapa --- */
 @keyframes flotar {
   0%, 100% { transform: translateY(0px); }
   50%       { transform: translateY(-14px); }
 }
 
-/* --- Cards: glow verde en hover --- */
 .tarjeta-concepto:hover {
   box-shadow:
     0 25px 50px rgba(0,0,0,0.5),
@@ -2239,7 +2228,6 @@ body {
   box-shadow: 0 22px 44px rgba(0,0,0,0.36), 0 0 22px rgba(104, 167, 124, 0.18);
 }
 
-/* --- Reveal mejorado: más suave y con verde --- */
 .reveal-left,
 .reveal-right {
   transition: opacity 1s ease, transform 1s cubic-bezier(0.22, 1, 0.36, 1);
@@ -2255,7 +2243,6 @@ body {
   transform: translateY(0);
 }
 
-/* --- Scrollbar con verde --- */
 .tabla-contenedor::-webkit-scrollbar-thumb,
 .wrapper-tabla-scroll::-webkit-scrollbar-thumb,
 .tabla-filtrada::-webkit-scrollbar-thumb {
@@ -2268,7 +2255,6 @@ body {
   box-shadow: 0 0 18px rgba(104, 167, 124, 0.4);
 }
 
-/* --- Cabeceras de tabla con verde --- */
 .tabla-datos th,
 .tabla-profesional-final thead th {
   background: linear-gradient(180deg, var(--g4), #4d8a5e);
@@ -2278,12 +2264,10 @@ body {
   background: rgba(104, 167, 124, 0.18);
 }
 
-/* --- Botón mapa: glow más vistoso en hover --- */
 .btn-mapa:hover {
   box-shadow: 0 16px 40px rgba(104, 167, 124, 0.55);
 }
 
-/* --- Título outline del mapa con trazo animado --- */
 .mapa-titulo {
   animation: pulsoTexto 4s ease-in-out infinite;
 }
@@ -2292,18 +2276,13 @@ body {
   50%       { text-shadow: 0 0 35px rgba(193, 241, 185, 0.35); }
 }
 
-/* ============================================================
-   MEJORAS v2 — LOADER · PROGRESO · REVEALS · TILT · PARALLAX
-   ============================================================ */
 
-/* Easing custom */
 :root {
   --ease-expo:  cubic-bezier(0.19, 1, 0.22, 1);
   --ease-back:  cubic-bezier(0.34, 1.56, 0.64, 1);
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ── Page Loader ── */
 .page-loader {
   position: fixed;
   inset: 0;
@@ -2339,7 +2318,6 @@ body {
   color: #8BC190;
 }
 
-/* ── Scroll progress bar ── */
 .scroll-progress-bar {
   position: fixed;
   top: 0;
@@ -2353,7 +2331,6 @@ body {
   pointer-events: none;
 }
 
-/* ── Ken Burns en el hero ── */
 .hero::before {
   content: "";
   position: absolute;
@@ -2368,12 +2345,10 @@ body {
   0%   { transform: scale(1) translate(0, 0); }
   100% { transform: scale(1.08) translate(-1%, -1%); }
 }
-/* El overlay y canvas deben estar sobre ::before */
 .hero-overlay { z-index: 1; }
 .hero-canvas  { z-index: 2; }
 .hero-content { z-index: 3; }
 
-/* ── Scroll hint (indicador de scroll en el hero) ── */
 .hero::after {
   content: "";
   position: absolute;
@@ -2394,13 +2369,11 @@ body {
   50%       { background-position: center 18px; opacity: 1;  }
 }
 
-/* ── FIX: tabla de variables dentro del grid ── */
 .conceptos-grid > .seccion-tabla-variables {
   grid-column: 1 / -1;
   width: 100%;
 }
 
-/* ── Reveal sistema is-visible ── */
 .reveal-up {
   opacity: 0;
   transform: translateY(30px);
@@ -2431,7 +2404,6 @@ body {
   transform: translateX(0);
 }
 
-/* ── Reveal zoom (tablas, mapas) ── */
 .reveal-zoom {
   opacity: 0;
   transform: scale(0.93);
@@ -2439,7 +2411,6 @@ body {
 }
 .reveal-zoom.is-visible { opacity: 1; transform: scale(1); }
 
-/* ── Reveal stagger (grids) ── */
 .reveal-stagger > * {
   opacity: 0;
   transform: translateY(26px);
@@ -2454,7 +2425,6 @@ body {
 .reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 0.50s; }
 .reveal-stagger.is-visible > *:nth-child(n+7) { transition-delay: 0.58s; }
 
-/* ── Pantalla: transición más fluida ── */
 @keyframes aparecer {
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -2463,13 +2433,11 @@ body {
   animation: aparecer 0.55s var(--ease-expo);
 }
 
-/* ── Tabla: top border verde al hover de fila ── */
 .tabla-datos tbody tr:hover td:first-child,
 .tabla-profesional-final tbody tr:hover td:first-child {
   box-shadow: inset 4px 0 0 var(--g3);
 }
 
-/* ── Tabla contenedor: border verde al hover ── */
 .tabla-contenedor:hover,
 .wrapper-tabla-scroll:hover {
   border-color: rgba(104, 167, 124, 0.35);
@@ -2477,14 +2445,12 @@ body {
   transition: border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* ── Mapa container: glow verde al hover ── */
 .mapa-container:hover {
   box-shadow: 0 28px 60px rgba(0,0,0,0.6), 0 0 28px rgba(104,167,124,0.18);
   transform: translateY(-3px);
   transition: all 0.45s var(--ease-expo);
 }
 
-/* ── Footer: lista de integrantes animada ── */
 .lista-integrantes li {
   transition: color 0.3s ease, transform 0.3s ease;
   padding-left: 14px;
@@ -2505,14 +2471,12 @@ body {
 .lista-integrantes li:hover { color: #fff; transform: translateX(6px); }
 .lista-integrantes li:hover::before { transform: translateY(-50%) scale(1); }
 
-/* ── Iconos redes sociales ── */
 .icono-red:hover {
   color: var(--g3) !important;
   transform: translateY(-5px) rotate(-6deg);
   filter: drop-shadow(0 0 8px rgba(139, 193, 144, 0.5));
 }
 
-/* ── Buscador foco verde ── */
 .buscador-caja:focus-within {
   border-color: rgba(104, 167, 124, 0.6);
   box-shadow: 0 0 0 3px rgba(104, 167, 124, 0.10);
@@ -2521,7 +2485,6 @@ body {
   border-color: rgba(104, 167, 124, 0.55);
 }
 
-/* ── Badges mejorados ── */
 .badge {
   transition: transform 0.3s var(--ease-back);
 }
@@ -2529,7 +2492,6 @@ body {
   transform: scale(1.06);
 }
 
-/* ── @media: reducir movimiento ── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -2538,26 +2500,21 @@ body {
   }
 }
 
-/* ============================================================
-   v3 — PREMIUM · CANVAS GLOBAL · DROPDOWN · NUEVAS SECCIONES
-   ============================================================ */
 
-/* ── Canvas global de partículas — DETRÁS de todo el contenido ── */
 html {
-  background: #0a0a0a;       /* el negro vive en html, no en body */
+  background: #0a0a0a;       
   min-height: 100%;
 }
 body {
-  background: transparent;   /* deja ver el canvas que está detrás */
+  background: transparent;  
 }
 .bg-particles {
   position: fixed;
   inset: 0;
-  z-index: -1;               /* DETRÁS del contenido, delante del fondo de html */
+  z-index: -1;               
   pointer-events: none;
 }
 
-/* ── Título con gradiente animado (premium) ── */
 .titulo-gradiente {
   font-size: clamp(2.4rem, 5vw, 4rem);
   font-weight: 800;
@@ -2583,7 +2540,6 @@ body {
   100% { background-position: 280% center; }
 }
 
-/* También aplica al título del hero */
 .hero-content h1 {
   background: linear-gradient(120deg,
     #ffffff 0%,
@@ -2598,7 +2554,6 @@ body {
   filter: drop-shadow(0 8px 22px rgba(0,0,0,0.55));
 }
 
-/* ── Tag premium ── */
 .section-tag {
   display: inline-flex;
   align-items: center;
@@ -2628,9 +2583,6 @@ body {
   50%      { opacity: 1; transform: scale(1.4); }
 }
 
-/* ─────────────────────────────────────────
-   DROPDOWN "MÁS"
-   ───────────────────────────────────────── */
 .nav-mas {
   position: relative;
 }
@@ -2727,7 +2679,6 @@ body {
 }
 .sub-link::after { content: none !important; }
 
-/* En móvil: el submenú se abre debajo en flujo */
 @media (max-width: 820px) {
   .submenu-mas {
     position: static;
@@ -2751,9 +2702,6 @@ body {
   }
 }
 
-/* ─────────────────────────────────────────
-   SECCIONES PREMIUM (Nosotros / Herramientas / Conclusiones)
-   ───────────────────────────────────────── */
 .seccion-premium {
   max-width: 1300px;
   margin: 0 auto;
@@ -2774,7 +2722,6 @@ body {
   line-height: 1.7;
 }
 
-/* ─── PERSONAS GRID ─── */
 .personas-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -2879,7 +2826,6 @@ body {
 @media (max-width: 1100px) { .personas-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px)  { .personas-grid { grid-template-columns: 1fr; } }
 
-/* ─── HERRAMIENTAS GRID ─── */
 .herramientas-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -2974,7 +2920,6 @@ body {
 @media (max-width: 1100px) { .herramientas-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px)  { .herramientas-grid { grid-template-columns: 1fr; } }
 
-/* ─── CONCLUSIONES GRID ─── */
 .conclusiones-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -3043,7 +2988,6 @@ body {
 @media (max-width: 1100px) { .conclusiones-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 700px)  { .conclusiones-grid { grid-template-columns: 1fr; } }
 
-/* ─── BOTÓN SWIPE PREMIUM ─── */
 .btn-primary,
 .btn-mapa {
   position: relative;
@@ -3244,5 +3188,274 @@ body {
 
   .intro-bloque-texto h3 {
     font-size: 1.25rem;
+  }
+}
+
+html {
+  background:
+    radial-gradient(ellipse 1400px 900px at 50% -8%, rgba(104,167,124,0.09), transparent 60%),
+    radial-gradient(ellipse 1100px 800px at 105% 100%, rgba(139,193,144,0.06), transparent 55%),
+    #050505;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 0);
+  background-size: 3px 3px;
+}
+
+.hero-content h1,
+.mapa-titulo,
+.titulo-outline,
+.tabla-titulo,
+.inferencial-titulo-tabla,
+.titulo-regresion,
+.titulo-principal-galeria,
+.var-titulo-principal,
+.conceptos-titulo,
+.titulo-gradiente,
+.introduccion-contenido-hero h2,
+.descriptiva-contenido h2,
+.regresion-hero-contenido h1,
+.reg-texto h3,
+.persona-card h3,
+.herramienta-card h3,
+.conclusion-card h3,
+.intro-bloque-texto h3,
+.info-block h2,
+.col-footer h3 {
+  font-family: 'Baloo 2', sans-serif;
+  letter-spacing: 0.3px;
+}
+
+
+.pie-pagina,
+#modal p,
+#btn-ok,
+.note {
+  font-family: 'Poppins', sans-serif;
+}
+
+#modal h2 {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 700;
+}
+
+
+.btn-link {
+  color: #C1F1B9;
+  background: rgba(139, 193, 144, 0.10);
+  border-color: rgba(139, 193, 144, 0.28);
+}
+.btn-link:hover {
+  background: rgba(139, 193, 144, 0.20);
+  color: #ffffff;
+  border-color: rgba(139, 193, 144, 0.55);
+  box-shadow: 0 0 12px rgba(139, 193, 144, 0.25);
+}
+.btn-link:visited { color: #C1F1B9; }
+
+.fila-identificacion a {
+  color: #C1F1B9;
+  background: rgba(139, 193, 144, 0.08);
+  border-color: rgba(139, 193, 144, 0.25);
+}
+.fila-identificacion a:hover {
+  background: rgba(139, 193, 144, 0.18);
+  color: #ffffff;
+  border-color: rgba(139, 193, 144, 0.6);
+  box-shadow: 0 0 10px rgba(139, 193, 144, 0.25);
+}
+.fila-identificacion a:visited { color: #C1F1B9; }
+
+.tarjeta-v:hover .btn-tarjeta-v,
+.card-minimal-inferencial:hover .btn-minimal-card {
+  background: linear-gradient(135deg, #68A77C, #8BC190);
+  color: #0a0a0a;
+  box-shadow: 0 8px 18px rgba(139, 193, 144, 0.30);
+}
+
+
+.tarjeta-v,
+.card-minimal-inferencial {
+  background: linear-gradient(180deg, rgba(18,23,29,0.72) 0%, rgba(10,13,16,0.62) 100%) !important;
+  border: 1px solid rgba(139, 193, 144, 0.14);
+}
+
+.tarjeta-v:hover,
+.card-minimal-inferencial:hover {
+  border-color: rgba(139, 193, 144, 0.40);
+}
+
+.tarjeta-v-top,
+.card-minimal-top {
+  position: relative;
+}
+.tarjeta-v-top::after,
+.card-minimal-top::after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(139,193,144,0.35), transparent);
+}
+
+.tarjeta-v-bottom,
+.card-minimal-bottom {
+  background: transparent !important;
+}
+
+.tarjeta-v-bottom h4,
+.card-minimal-bottom h4 {
+  color: #f7f8fa;
+}
+
+.tarjeta-v-bottom p,
+.card-minimal-bottom p {
+  color: #b5b5b5;
+}
+
+.btn-tarjeta-v,
+.btn-minimal-card {
+  background: rgba(139, 193, 144, 0.10);
+  color: #C1F1B9;
+  border: 1px solid rgba(139, 193, 144, 0.22);
+}
+
+.badge.cualitativa {
+  background: rgba(139, 193, 144, 0.14);
+  color: #C1F1B9;
+  border-color: rgba(139, 193, 144, 0.30);
+}
+.badge.cuantitativa {
+  background: rgba(104, 167, 124, 0.16);
+  color: #8ee28d;
+  border-color: rgba(104, 167, 124, 0.32);
+}
+
+.icono-tarjeta i {
+  color: #C1F1B9;
+}
+.tarjeta-concepto:hover .icono-tarjeta i {
+  color: #ffffff;
+}
+
+.formula-simbolico {
+  color: #d9f6e6;
+}
+
+.interactivo-header p,
+.inferencial-subtitulo-tabla,
+.premium-subtitle {
+  letter-spacing: 0.2px;
+}
+
+@media (max-width: 768px) {
+  .hero-content h1,
+  .mapa-titulo,
+  .titulo-outline {
+    letter-spacing: 0.2px;
+  }
+}
+
+
+.regresion-contenido-extra {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.regresion-contenido-extra::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(4,5,5,0.95) 0%, rgba(4,5,5,0.90) 30%, rgba(0,0,0,0.85) 65%, #000000 100%),
+    url("img/imagen2.jpg") center/cover fixed;
+}
+
+.titulo-regresion {
+  position: relative;
+  padding: 10px 20px 20px;
+  text-shadow: 0 10px 34px rgba(0,0,0,0.65);
+}
+
+.titulo-regresion::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  width: 560px;
+  max-width: 90vw;
+  height: 220px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse, rgba(139,193,144,0.16), transparent 72%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.reg-texto {
+  position: relative;
+  padding: 30px 34px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(15,18,22,0.62), rgba(9,11,14,0.42));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 14px 34px rgba(0,0,0,0.35);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.reg-texto::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 30px;
+  right: 30px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #8BC190, #C1F1B9, transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.reg-item:hover .reg-texto {
+  border-color: rgba(139, 193, 144, 0.32);
+  box-shadow: 0 20px 44px rgba(0,0,0,0.45), 0 0 26px rgba(139, 193, 144, 0.14);
+  transform: translateY(-4px);
+}
+
+.reg-item:hover .reg-texto::before {
+  transform: scaleX(1);
+}
+
+.reg-item.reverse .reg-texto::before {
+  right: 30px;
+  left: 30px;
+  transform-origin: right;
+}
+
+@media (max-width: 980px) {
+  .regresion-contenido-extra::before {
+    background:
+      linear-gradient(180deg, rgba(4,5,5,0.95) 0%, rgba(0,0,0,0.92) 100%),
+      url("img/imagen2.jpg") center/cover fixed;
+  }
+  .reg-texto {
+    padding: 26px 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .regresion-contenido-extra::before {
+    background-attachment: scroll;
   }
 }
