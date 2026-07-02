@@ -1,4 +1,3 @@
-/* ─── NAVEGACIÓN ─────────────────────────────────────── */
 function navegar(seccion, elemento) {
   document.querySelectorAll('.pantalla').forEach(p => p.classList.remove('pantalla-activa'));
 
@@ -16,10 +15,8 @@ function navegar(seccion, elemento) {
   setTimeout(rescanReveals, 80);
 }
 
-/* ─── INIT ────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ── Loader ── */
   const loader = document.createElement('div');
   loader.className = 'page-loader';
   loader.innerHTML = `<div class="loader-ring"></div><div class="loader-text">Cargando proyecto</div>`;
@@ -30,13 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   setTimeout(() => { loader.classList.add('hidden'); setTimeout(() => loader.remove(), 750); }, 2800);
 
-  /* ── Barra de progreso ── */
   const bar = document.createElement('div');
   bar.className = 'scroll-progress-bar';
   document.body.appendChild(bar);
   initScrollProgress(bar);
 
-  /* ── Menú móvil ── */
   const toggle = document.getElementById('menu-toggle');
   const navEl  = document.getElementById('nav-links');
   if (toggle && navEl) {
@@ -47,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', e => { if (e.key === 'Escape') navEl.classList.remove('show'); });
   }
 
-  /* ── Header scroll ── */
   window.addEventListener('scroll', () => {
     document.querySelector('.header')?.classList.toggle('scrolled', window.scrollY > 50);
   }, { passive: true });
@@ -58,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initParallax();
 });
 
-/* ─── AUTO MARK REVEALS ───────────────────────────────── */
 function autoMarkReveals() {
   document.querySelectorAll('.conceptos-grid, .var-grid, .grid-navegacion-cards, .rpubs-grid')
     .forEach(el => el.classList.add('reveal-stagger'));
@@ -67,7 +60,6 @@ function autoMarkReveals() {
     .forEach(el => el.classList.add('reveal-zoom'));
 }
 
-/* ─── INTERSECTION OBSERVER ───────────────────────────── */
 let _revealObs = null;
 
 function initRevealObserver() {
@@ -96,7 +88,6 @@ function rescanReveals() {
   ).forEach(el => _revealObs.observe(el));
 }
 
-/* ─── TILT 3D ─────────────────────────────────────────── */
 function initCardTilt() {
   if (window.matchMedia('(pointer: coarse)').matches) return;
   const MAX = 7;
@@ -115,7 +106,6 @@ function initCardTilt() {
   });
 }
 
-/* ─── PARALLAX HERO ───────────────────────────────────── */
 function initParallax() {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const hero = document.querySelector('.hero');
@@ -138,7 +128,6 @@ function initParallax() {
   }, { passive: true });
 }
 
-/* ─── SCROLL PROGRESS ─────────────────────────────────── */
 function initScrollProgress(bar) {
   if (!bar) return;
   let ticking = false;
@@ -156,7 +145,6 @@ function initScrollProgress(bar) {
   update();
 }
 
-/* ─── DROPDOWN "MÁS" ──────────────────────────────────── */
 function toggleMas(ev) {
   if (ev) { ev.preventDefault(); ev.stopPropagation(); }
   document.getElementById('nav-mas')?.classList.toggle('open');
@@ -170,7 +158,6 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') document.getElementById('nav-mas')?.classList.remove('open');
 });
 
-/* ─── BACKGROUND CANVAS GLOBAL (partículas en todo el sitio) ─── */
 (function () {
   const canvas = document.getElementById('bg-particles');
   if (!canvas) return;
@@ -184,7 +171,7 @@ document.addEventListener('keydown', (e) => {
   }
 
   function mkP(spread) {
-    const layer = Math.random();   // 0 = lejano (lento+pequeño), 1 = cercano (rápido+grande)
+    const layer = Math.random();   
     return {
       x:      Math.random() * w,
       y:      spread ? Math.random() * h : -10,
@@ -206,7 +193,6 @@ document.addEventListener('keydown', (e) => {
   function frame() {
     ctx.clearRect(0, 0, w, h);
 
-    // Líneas conectoras entre partículas cercanas (efecto constelación)
     for (let i = 0; i < particles.length; i++) {
       const a = particles[i];
       for (let j = i + 1; j < particles.length; j++) {
@@ -227,13 +213,12 @@ document.addEventListener('keydown', (e) => {
       }
     }
 
-    // Partículas
+    
     particles.forEach(p => {
       p.y += p.speed;
       p.wobble += p.wSpd;
       p.x += Math.sin(p.wobble) * 0.4;
 
-      // Drift suave hacia el cursor (parallax cursor)
       const dx = mouseX - p.x, dy = mouseY - p.y;
       const dist = Math.sqrt(dx*dx + dy*dy);
       if (dist < 180) {
@@ -265,7 +250,6 @@ document.addEventListener('keydown', (e) => {
   frame();
 })();
 
-/* ─── HERO CANVAS PARTÍCULAS — para todos los .particle-canvas ── */
 (function () {
   const canvases = document.querySelectorAll('.particle-canvas');
   if (!canvases.length) return;
@@ -328,7 +312,6 @@ document.addEventListener('keydown', (e) => {
   });
 })();
 
-/* ─── BUSCADOR Y FILTRO ───────────────────────────────── */
 const buscador   = document.getElementById("buscador-tabla");
 const filtroTipo = document.getElementById("filtro-tipo");
 const filasTabla = document.querySelectorAll("#miTabla tbody tr");
@@ -348,7 +331,6 @@ if (buscador && filtroTipo) {
   filtroTipo.addEventListener("change", filtrarTabla);
 }
 
-/* ─── MODAL ───────────────────────────────────────────── */
 function cerrarModal() {
   const overlay = document.getElementById('overlay');
   if (!overlay) return;
