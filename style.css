@@ -410,9 +410,15 @@ main{ position:relative; }
 .intro-bloque--alcance .intro-bloque-icono{ color:var(--teal-soft); background:rgba(var(--teal-rgb),.1); }
 
 .reveal-up{ opacity:0; transform:translateY(34px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
-.reveal-up.visible{ opacity:1; transform:translateY(0); }
+.reveal-up.is-visible{ opacity:1; transform:translateY(0); }
 .reveal-stagger > *{ opacity:0; transform:translateY(34px); transition:opacity .7s var(--ease), transform .7s var(--ease); }
-.reveal-stagger.visible > *{ opacity:1; transform:translateY(0); }
+.reveal-stagger.is-visible > *{ opacity:1; transform:translateY(0); }
+.reveal-left{ opacity:0; transform:translateX(-34px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal-left.is-visible{ opacity:1; transform:translateX(0); }
+.reveal-right{ opacity:0; transform:translateX(34px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal-right.is-visible{ opacity:1; transform:translateX(0); }
+.reveal-zoom{ opacity:0; transform:scale(.96); transition:opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal-zoom.is-visible{ opacity:1; transform:scale(1); }
 
 .mapa-ubicacion{
   position:relative;
@@ -472,14 +478,12 @@ main{ position:relative; }
 .mapa-container:hover{ box-shadow:var(--glow-teal), var(--shadow-2); }
 .mapa-container iframe{ width:100%; height:100%; border:0; }
 
+#machine-learning{ position:relative; }
 #machine-learning .mapa-container{ height:92vh; }
-#machine-learning .interactivo-header{
-  padding:56px 32px;
-  border-radius:var(--radius-l);
-  background:
-    radial-gradient(ellipse 70% 100% at 50% 0%, rgba(var(--teal-rgb),.16), transparent 70%),
-    linear-gradient(150deg, rgba(var(--amber-rgb),.10), rgba(var(--teal-rgb),.08));
-  border:1px solid var(--border);
+#machine-learning .interactivo-header .btn-primary{
+  margin-top:30px;
+  padding:18px 44px;
+  font-size:1.05rem;
 }
 
 .descriptiva-contenido-extra{ max-width:1280px; margin:0 auto; padding:100px 32px 40px; }

@@ -8,7 +8,7 @@ function navegar(seccion, elemento) {
   if (elemento) elemento.classList.add('activo');
 
   if (window.innerWidth <= 820) {
-    document.getElementById('nav-links')?.classList.remove('show');
+    document.getElementById('nav-links')?.classList.remove('abierto');
   }
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -35,11 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.getElementById('menu-toggle');
   const navEl  = document.getElementById('nav-links');
   if (toggle && navEl) {
-    toggle.addEventListener('click', e => { e.stopPropagation(); navEl.classList.toggle('show'); });
+    toggle.addEventListener('click', e => { e.stopPropagation(); navEl.classList.toggle('abierto'); });
     document.addEventListener('click', e => {
-      if (!navEl.contains(e.target) && !toggle.contains(e.target)) navEl.classList.remove('show');
+      if (!navEl.contains(e.target) && !toggle.contains(e.target)) navEl.classList.remove('abierto');
     });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') navEl.classList.remove('show'); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') navEl.classList.remove('abierto'); });
   }
 
   window.addEventListener('scroll', () => {
@@ -147,15 +147,15 @@ function initScrollProgress(bar) {
 
 function toggleMas(ev) {
   if (ev) { ev.preventDefault(); ev.stopPropagation(); }
-  document.getElementById('nav-mas')?.classList.toggle('open');
+  document.getElementById('nav-mas')?.classList.toggle('abierto');
 }
 
 document.addEventListener('click', (e) => {
   const li = document.getElementById('nav-mas');
-  if (li && !li.contains(e.target)) li.classList.remove('open');
+  if (li && !li.contains(e.target)) li.classList.remove('abierto');
 });
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') document.getElementById('nav-mas')?.classList.remove('open');
+  if (e.key === 'Escape') document.getElementById('nav-mas')?.classList.remove('abierto');
 });
 
 (function () {
@@ -304,7 +304,6 @@ document.addEventListener('keydown', (e) => {
     }
 
     window.addEventListener('resize', init);
-    // Reinit cuando cambia la pantalla (porque pasa de display:none a block)
     new ResizeObserver(() => { if (canvas.offsetWidth !== w) init(); }).observe(canvas);
 
     init();
