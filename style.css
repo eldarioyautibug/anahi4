@@ -383,6 +383,7 @@ main{ position:relative; }
 }
 .intro-bloque{
   display:flex; flex-direction:column; gap:18px;
+  justify-content:center;
   background:var(--bg-card);
   border:1px solid transparent;
   border-radius:var(--radius-m);
@@ -712,6 +713,7 @@ table.tabla-datos,.tabla-profesional-final{ width:100%; border-collapse:collapse
   transition:transform var(--dur-2) var(--ease);
 }
 .herramienta-card:hover .herramienta-logo{ transform:scale(1.1) rotate(-4deg); }
+.herramienta-logo i{ font-size:1.9rem; color:#8BC190; }
 .herramienta-card h3{ font-size:1rem; margin-bottom:10px; }
 .herramienta-card p{ font-size:.85rem; margin-bottom:16px; }
 .chip-tech{
