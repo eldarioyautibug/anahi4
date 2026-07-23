@@ -69,6 +69,9 @@
             <li><a onclick="navegar('conclusiones', this)" class="menu-link sub-link"><i class="fas fa-flag-checkered"></i> Conclusiones</a></li>
           </ul>
         </li>
+        <li class="nav-lang">
+          <button id="lang-toggle-btn" class="lang-btn" onclick="toggleLanguage()">EN</button>
+        </li>
       </ul>
     </nav>
   </header>
@@ -341,16 +344,15 @@
         </div>
         <h3>Población</h3>
         <p>
-          <strong>Textual:</strong> Todas las porciones de subsuelo del territorio de Brasil
-          susceptibles de actividades de exploración y/o explotación de hidrocarburos.
+          <strong>Textual:</strong> Conjunto de todos los pozos de hidrocarburos registrados en el territorio de Brasil, asociados a actividades de exploración y/o explotación.
         </p>
 
         <div class="caja-simbolico">
           <span class="etiqueta-simbolico">Simbólico</span>
           <span class="formula-simbolico">
-            U = {x | x ∈ porciones de subsuelo <br>
+            P = {x | x ∈ Pozos <br>
             ∧ País(x) = "Brasil" <br>
-            ∧ Apto(x) = "Hidrocarburos"}
+            ∧ Actividad(x) = "Hidrocarburos"}
           </span>
         </div>
       </div>
@@ -361,15 +363,15 @@
         </div>
         <h3>Individuo</h3>
         <p>
-          <strong>Textual:</strong> Cada porción de subsuelo ubicada en Brasil que cumple
-          criterios de aptitud para hidrocarburos.
+          <strong>Textual:</strong> Cada pozo de hidrocarburos ubicado en Brasil que constituye una unidad de observación dentro del estudio.
         </p>
 
         <div class="caja-simbolico">
           <span class="etiqueta-simbolico">Simbólico</span>
           <span class="formula-simbolico">
-            Xᵢ = 1, 2, 3, …, n <br>
-            n = 29,575
+            Xᵢ = pozo i <br>
+            i = 1, 2, 3, …, n <br>
+            (cada Xᵢ representa un pozo individual)
           </span>
         </div>
       </div>
@@ -380,17 +382,14 @@
         </div>
         <h3>Muestra</h3>
         <p>
-          <strong>Textual:</strong> Conjunto de todas las porciones de subsuelo en Brasil
-          donde se realizaron actividades de exploración o explotación desde 1940 hasta 2018.
+          <strong>Textual:</strong> Conjunto de 29.575 pozos de hidrocarburos registrados en Brasil y considerados en la base de datos para el período comprendido entre 1940 y 2018.
         </p>
 
         <div class="caja-simbolico">
           <span class="etiqueta-simbolico">Simbólico</span>
           <span class="formula-simbolico">
-            M = {x | x ∈ Porciones <br>
-            ∧ País(x) = "Brasil" <br>
-            ∧ Apto(x) = "Hidrocarburos" <br>
-            ∧ 1940 ≤ año(x) ≤ 2018}
+            M = {Xᵢ ∈ P | 1940 ≤ Año(Xᵢ) ≤ 2018} <br>
+            M = 29,575
           </span>
         </div>
       </div>
@@ -401,16 +400,14 @@
         </div>
         <h3>Caso de Estudio</h3>
         <p>
-          <strong>Textual:</strong> Cada una de las porciones de subsuelo de Brasil que
-          registran actividades de exploración o explotación de hidrocarburos entre 1940 y 2018.
+          <strong>Textual:</strong> Cada uno de los pozos de hidrocarburos pertenecientes a la muestra, del cual se analizan sus características y variables registradas.
         </p>
 
         <div class="caja-simbolico">
           <span class="etiqueta-simbolico">Simbólico</span>
           <span class="formula-simbolico">
             Xᵢ ∈ M <br>
-            i = 1, 2, 3, …, n <br>
-            n = 29,575
+            i = 1, 2, 3, …, 29,575
           </span>
         </div>
            </div>
@@ -2429,6 +2426,13 @@
     </div>
   </footer>
 
+  <div id="google_translate_element" style="display:none;"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,es', autoDisplay: false}, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <script src="script.js"></script>
 </body>
 </html>

@@ -340,3 +340,21 @@ function cerrarModal() {
 document.getElementById('overlay')?.addEventListener('click', function(e) {
   if (e.target === this) cerrarModal();
 });
+
+let currentLang = 'es';
+function toggleLanguage() {
+  currentLang = currentLang === 'es' ? 'en' : 'es';
+  const btn = document.getElementById('lang-toggle-btn');
+  if (btn) {
+    btn.innerText = currentLang === 'es' ? 'EN' : 'ES';
+  }
+  
+  const select = document.querySelector(".goog-te-combo");
+  if (select) {
+    select.value = currentLang;
+    select.dispatchEvent(new Event("change"));
+  } else {
+    // Si aún no carga el widget
+    setTimeout(toggleLanguage, 500);
+  }
+}

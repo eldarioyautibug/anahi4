@@ -838,3 +838,28 @@ table.tabla-datos,.tabla-profesional-final{ width:100%; border-collapse:collapse
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
 }
+
+/* Lang Button */
+.nav-lang {
+  display: flex;
+  align-items: center;
+}
+.lang-btn {
+  background: linear-gradient(135deg, var(--gold), var(--teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: var(--radius-s);
+  padding: 4px 12px;
+  margin-left: 10px;
+  transition: all var(--dur-1) var(--ease);
+}
+.lang-btn:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+/* Ocultar la barra superior de Google Translate que a veces aparece */
+body { top: 0 !important; }
+.skiptranslate iframe { display: none !important; }
