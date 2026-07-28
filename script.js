@@ -345,16 +345,15 @@ function toggleLanguage() {
   const btn = document.getElementById('lang-toggle-btn');
   if (!btn) return;
 
-  // Verificamos el estado actual por el texto del botón
-  const isSpanish = (btn.innerText.trim() === 'EN'); 
+  const currentLang = btn.getAttribute('data-lang') || 'es';
 
-  if (isSpanish) {
-    // Cambiar a inglés
+  if (currentLang === 'es') {
     setGoogleLang('en');
+    btn.setAttribute('data-lang', 'en');
     btn.innerText = 'ES';
   } else {
-    // Volver a español
     setGoogleLang('es');
+    btn.setAttribute('data-lang', 'es');
     btn.innerText = 'EN';
   }
 }
@@ -363,23 +362,26 @@ function setGoogleLang(lang) {
   const select = document.querySelector('.goog-te-combo');
   if (select) {
     select.value = lang;
-    // Si 'es' no está en las opciones de Google Translate (porque es el original), restauramos usando índice 0
     if (lang === 'es' && select.value !== 'es') {
       select.value = '';
       select.selectedIndex = 0;
     }
     select.dispatchEvent(new Event('change'));
+    select.dispatchEvent(new Event('input'));
   } else {
-    // Fallback: si el widget aún no está listo, guardamos la preferencia en cookie y recargamos
     document.cookie = `googtrans=/es/${lang}; path=/`;
     location.reload();
   }
 }
 
-// Sincronizar el estado inicial si la página se cargó con el traductor activado
 window.addEventListener('load', () => {
+  const btn = document.getElementById('lang-toggle-btn');
+  if (!btn) return;
   if (document.cookie.includes('googtrans=/es/en')) {
-    const btn = document.getElementById('lang-toggle-btn');
-    if (btn) btn.innerText = 'ES';
+    btn.setAttribute('data-lang', 'en');
+    btn.innerText = 'ES';
+  } else {
+    btn.setAttribute('data-lang', 'es');
+    btn.innerText = 'EN';
   }
 });

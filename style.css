@@ -163,7 +163,7 @@ em{ color:var(--gold-soft); font-style:italic; }
 .logo img{ height:42px; width:auto; transition:transform var(--dur-1) var(--ease); }
 .logo img:hover{ transform:scale(1.06) rotate(-2deg); }
 
-.nav-links{ display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+.nav-links{ display:flex; align-items:center; gap:6px; flex-wrap:nowrap; }
 .menu-link{
   position:relative;
   display:inline-flex; align-items:center; gap:6px;
@@ -839,10 +839,10 @@ table.tabla-datos,.tabla-profesional-final{ width:100%; border-collapse:collapse
   *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
 }
 
-/* Lang Button */
 .nav-lang {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 .lang-btn {
   background: linear-gradient(135deg, var(--gold), var(--teal));
@@ -860,6 +860,11 @@ table.tabla-datos,.tabla-profesional-final{ width:100%; border-collapse:collapse
   border-color: var(--gold);
   transform: translateY(-2px);
 }
-/* Ocultar la barra superior de Google Translate que a veces aparece */
-body { top: 0 !important; }
+body {
+  top: 0 !important;
+  position: relative !important;
+}
 .skiptranslate iframe { display: none !important; }
+.goog-te-banner-frame { display: none !important; }
+.goog-te-gadget { display: none !important; }
+#google_translate_element { display: none !important; }
