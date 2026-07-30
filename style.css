@@ -636,8 +636,8 @@ table.tabla-datos,.tabla-profesional-final{ width:100%; border-collapse:collapse
 
 .seccion-regresion{ display:block; }
 .regresion-contenido-extra{
-  max-width:1320px; margin:0 auto; padding:100px 32px 110px;
-  display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
+  width: 100%; max-width:100%; margin:0 auto; padding:0;
+  display:block;
 }
 .titulo-regresion{ grid-column:1/-1; text-align:center; font-size:clamp(1.8rem,4vw,2.6rem); margin:0 0 24px; }
 .reg-item{
@@ -825,7 +825,6 @@ table.tabla-datos,.tabla-profesional-final{ width:100%; border-collapse:collapse
   .mapa-ubicacion{ grid-template-columns:1fr; text-align:center; }
   .mapa-texto{ text-align:center; }
   .mapa-texto::before{ text-align:center; }
-  .regresion-contenido-extra{ grid-template-columns:repeat(2,1fr); }
 }
 @media (max-width:600px){
   .navbar{ padding:12px 18px; }
