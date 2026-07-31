@@ -150,8 +150,7 @@
             <div class="intro-bloque-texto">
               <h3>Planteamiento del Problema</h3>
               <p>
-                Este proyecto analiza datos estadísticos de pozos petroleros en Brasil para superar
-                promedios simples y comprender su comportamiento real mediante un enfoque técnico-académico.
+                La exploración de petróleo y gas es importante para el desarrollo económico de cualquier país, mediante la estadística podemos obtener información útil, relacionada con la exploración y producción de petróleo y gas. Como caso de estudio tomamos Brasil con datos descargados desde Kaggle.
               </p>
               <a href="https://www.kaggle.com/datasets/dtommasini/oil-gas-wells-brazil" class="btn-primary">Ver Dataset</a>
             </div>
@@ -339,15 +338,13 @@
         </div>
         <h3>Población</h3>
         <p>
-          <strong>Textual:</strong> Conjunto de todos los pozos de hidrocarburos registrados en el territorio de Brasil, asociados a actividades de exploración y/o explotación.
+          <strong>Textual:</strong> Conjunto de todos los pozos de hidrocarburos en el territorio de Brasil.
         </p>
 
         <div class="caja-simbolico">
           <span class="etiqueta-simbolico">Simbólico</span>
           <span class="formula-simbolico">
-            P = {x | x ∈ Pozos <br>
-            ∧ País(x) = "Brasil" <br>
-            ∧ Actividad(x) = "Hidrocarburos"}
+            U = {x | x ∈ Pozos ∧ País(x) = "Brasil"}
           </span>
         </div>
       </div>
@@ -365,7 +362,7 @@
           <span class="etiqueta-simbolico">Simbólico</span>
           <span class="formula-simbolico">
             Xᵢ = pozo i <br>
-            i = 1, 2, 3, …, n <br>
+            i = 1, 2, 3, …, ∞ <br>
             (cada Xᵢ representa un pozo individual)
           </span>
         </div>
@@ -383,8 +380,8 @@
         <div class="caja-simbolico">
           <span class="etiqueta-simbolico">Simbólico</span>
           <span class="formula-simbolico">
-            M = {Xᵢ ∈ P | 1940 ≤ Año(Xᵢ) ≤ 2018} <br>
-            M = 29,575
+            n = {Xᵢ ∈ P | 1940 ≤ Año(Xᵢ) ≤ 2018} <br>
+            n = 29,575
           </span>
         </div>
       </div>
@@ -454,7 +451,7 @@
   <td class="formula-celda">D={x ∣ x ∈ Etiquetas alfanuméricas de identificación de pozos}</td>
   <td class="formula-celda">R={x | x ∈ IDs únicos de cada pozo del dataset}</td>
   <td>Reporte ANP</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>No</td>
 </tr>
@@ -469,7 +466,7 @@
   <td class="formula-celda">D={x ∣ x ∈ Número único de registro catastral}</td>
   <td class="formula-celda">R={x ∈ ℤ⁺ | 8,115,018,892 ≤ x ≤ 901,210,398,600}</td>
   <td>Reporte ANP</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>No</td>
 </tr>
@@ -482,9 +479,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={x ∣ x ∈ Nombres de Compañías}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x ∣ x ∈ Nombres de Compañías, x está en el dataset }</td>
   <td>Reporte ANP</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>Si</td>
 </tr>
@@ -497,9 +494,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={x ∣ x ∈ Σ*}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x | x ∈ Códigos alfanuméricos de operador, x está en el dataset}</td>
   <td>Reporte Interno</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>No</td>
 </tr>
@@ -512,9 +509,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={x | x ∈ Códigos de Estados de Brasil}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x | x ∈ Códigos de Estados de Brasil, x está en el dataset}</td>
   <td>Georreferencia</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>Si</td>
 </tr>
@@ -527,9 +524,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={x | x ∈ Nombres de Cuencas}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x | x ∈ Nombres de Cuencas, x está en el dataset}</td>
   <td>Geología</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>Si</td>
 </tr>
@@ -542,9 +539,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={x ∣ x ∈ Códigos de Bloque}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x ∣ x ∈ Códigos de Bloque, x está en el dataset}</td>
   <td>Contrato ANP</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>Si</td>
 </tr>
@@ -557,9 +554,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={x ∣ x ∈ Siglas de Campo}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">D={x ∣ x ∈ Siglas de Campo, x está en el dataset}</td>
   <td>Reporte ANP</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>No</td>
 </tr>
@@ -572,9 +569,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={x ∣ x ∈ Nombres de Campo}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x ∣ x ∈ Nombres de Campo, x está en el dataset}</td>
   <td>Reporte ANP</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>Si</td>
 </tr>
@@ -589,7 +586,7 @@
   <td class="formula-celda">D={'T', 'M'}</td>
   <td class="formula-celda">R={'T', 'M'}</td>
   <td>Observación</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>Si</td>
 </tr>
@@ -602,9 +599,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={'S', 'N'}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={'S', 'N'}</td>
   <td>Clasif. ANP</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>Si</td>
 </tr>
@@ -617,9 +614,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={'Exploratório', 'Explotatório'}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={'Exploratório', 'Explotatório'}</td>
   <td>Clasif. ANP</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>Si</td>
 </tr>
@@ -634,7 +631,7 @@
   <td class="formula-celda">D={x | x ∈ Categorias de los Pozos en Brasil}</td>
   <td class="formula-celda">R={'Pioneiro', 'Pioneiro Adjacente', 'Extensão', 'Desenvolvimento', 'Estratigráfico', 'Injeção', 'Especial', 'Jazida Mais Profunda', 'Jazida Mais Rasa'}</td>
   <td>Clasif. ANP</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Ordinal</td>
   <td>Si</td>
 </tr>
@@ -647,9 +644,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Ordinal</td>
   <td class="formula-celda">D={x ∣ x ∈ Clasificaciones Secundarias}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x ∣ x ∈ Clasificaciones Secundarias, x está en el dataset}</td>
   <td>Clasif. ANP</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Ordinal</td>
   <td>Si</td>
 </tr>
@@ -664,7 +661,7 @@
   <td class="formula-celda">D={x ∣ x ∈ Propietarios de los derechos}</td>
   <td class="formula-celda">R={'Público', 'Confidencial'}</td>
   <td>Contrato ANP</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>Si</td>
 </tr>
@@ -677,9 +674,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Ordinal</td>
   <td class="formula-celda">D={x ∣ x ∈ Estados de Operación}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x ∣ x ∈ Estados de Operación, x está en el dataset}</td>
   <td>Reporte Operacional</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Ordinal</td>
   <td>Si</td>
 </tr>
@@ -692,7 +689,7 @@
   <td><span class="badge cuantitativa">Cuantitativa</span></td>
   <td>Discreta (Fecha)</td>
   <td class="formula-celda">D={x | x ∈ Fecha ∧ x ∈ DD/MM/AAAA}</td>
-  <td class="formula-celda">R={x ∈ Fecha | 01/01/1922 ≤ x ≤ 24/01/2018}</td>
+  <td class="formula-celda">R={x | x ∈ Fecha, x está en el dataset}</td>
   <td>Diario Perforación</td>
   <td>Fecha</td>
   <td>Intervalo</td>
@@ -707,7 +704,7 @@
   <td><span class="badge cuantitativa">Cuantitativa</span></td>
   <td>Discreta (Fecha)</td>
   <td class="formula-celda">D={x | x ∈ Fecha ∧ x ∈ DD/MM/AAAA}</td>
-  <td class="formula-celda">R={x ∈ Fecha | 30/06/1922 ≤ x ≤ 21/12/2017}</td>
+  <td class="formula-celda">R={x | x ∈ Fecha, x está en el dataset}</td>
   <td>Diario Perforación</td>
   <td>Fecha</td>
   <td>Intervalo</td>
@@ -722,7 +719,7 @@
   <td><span class="badge cuantitativa">Cuantitativa</span></td>
   <td>Discreta (Fecha)</td>
   <td class="formula-celda">D={x | x ∈ Fecha ∧ x ∈ DD/MM/AAAA}</td>
-  <td class="formula-celda">R={x ∈ Fecha | 30/06/1922 ≤ x ≤ 16/01/2018}</td>
+  <td class="formula-celda">R={x | x ∈ Fecha, x está en el dataset}</td>
   <td>Reporte Final</td>
   <td>Fecha</td>
   <td>Intervalo</td>
@@ -739,7 +736,7 @@
   <td class="formula-celda">D={x | x ∈ ℝ ∧ −90 ≤ x ≤ 90}</td>
   <td class="formula-celda">R={x ∈ ℝ | −32.9266 ≤ x ≤ 4.5280}</td>
   <td>GPS/Topografía</td>
-  <td>Grados (∘)</td>
+  <td>Grados (°)</td>
   <td>Intervalo</td>
   <td>Si</td>
 </tr>
@@ -754,7 +751,7 @@
   <td class="formula-celda">D={x | x ∈ ℝ ∧ −180 ≤ x ≤ 180}</td>
   <td class="formula-celda">R={x ∈ ℝ | −73.3768 ≤ x ≤ −34.8262}</td>
   <td>GPS/Topografía</td>
-  <td>Grados (∘)</td>
+  <td>Grados (°)</td>
   <td>Intervalo</td>
   <td>Si</td>
 </tr>
@@ -769,7 +766,7 @@
   <td class="formula-celda">D={x | x ∈ ℝ ∧ −90 ≤ x ≤ 90}</td>
   <td class="formula-celda">R={x ∈ ℝ | −32.9266 ≤ x ≤ 4.5280}</td>
   <td>GPS/Topografía</td>
-  <td>Grados (∘)</td>
+  <td>Grados (°)</td>
   <td>Intervalo</td>
   <td>Si</td>
 </tr>
@@ -784,7 +781,7 @@
   <td class="formula-celda">D={x | x ∈ ℝ ∧ −180 ≤ x ≤ 180}</td>
   <td class="formula-celda">R={x ∈ ℝ | −73.3768 ≤ x ≤ −34.8262}</td>
   <td>GPS/Topografía</td>
-  <td>Grados (∘)</td>
+  <td>Grados (°)</td>
   <td>Intervalo</td>
   <td>Si</td>
 </tr>
@@ -799,7 +796,7 @@
   <td class="formula-celda">D={'SIRGAS2000'}</td>
   <td class="formula-celda">R ⊆ D</td>
   <td>Georreferencia</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>No</td>
 </tr>
@@ -814,7 +811,7 @@
   <td class="formula-celda">D={'Definitiva', 'Provisória'}</td>
   <td class="formula-celda">R ⊆ D</td>
   <td>Reporte ANP</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>Si</td>
 </tr>
@@ -829,7 +826,7 @@
   <td class="formula-celda">D={'Vertical', 'Direcional', 'Horizontal'}</td>
   <td class="formula-celda">R={'Vertical', 'Direcional', 'Horizontal'}</td>
   <td>Ingeniería</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>Si</td>
 </tr>
@@ -887,7 +884,7 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={'MR'}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={'MR'}</td>
   <td>Topografía</td>
   <td>Ninguna</td>
   <td>Nominal</td>
@@ -947,9 +944,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={'NM'}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={'NM'}</td>
   <td>Georreferencia</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>No</td>
 </tr>
@@ -962,9 +959,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={x | x ∈ Nombres de Unidades Geológicas}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x | x ∈ Nombres de Unidades Geológicas, x está en el dataset}</td>
   <td>Geología</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>No</td>
 </tr>
@@ -977,9 +974,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={x | x ∈ Nombres de Grupos Geológicos}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x | x ∈ Nombres de Grupos Geológicos, x está en el dataset}</td>
   <td>Geología</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>Si</td>
 </tr>
@@ -992,9 +989,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={x | x ∈ Nombres de Formaciones Geológicas}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x | x ∈ Nombres de Formaciones Geológicas, x está en el dataset}</td>
   <td>Geología</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>Si</td>
 </tr>
@@ -1007,9 +1004,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={x | x ∈ Nombres de Miembros Geológicos}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x | x ∈ Nombres de Miembros Geológicos, x está en el dataset}</td>
   <td>Geología</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>Si</td>
 </tr>
@@ -1022,9 +1019,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={'Existe', ∅}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x | x ∈ Disponibilidad de Registros, x está en el dataset}</td>
   <td>Reporte Técnico</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>No</td>
 </tr>
@@ -1037,9 +1034,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={'Existe', ∅}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x | x ∈ Disponibilidad de Registros, x está en el dataset}</td>
   <td>Reporte Técnico</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>No</td>
 </tr>
@@ -1052,9 +1049,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={'Existe', ∅}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x | x ∈ Disponibilidad de Registros, x está en el dataset}</td>
   <td>Reporte Técnico</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>No</td>
 </tr>
@@ -1067,9 +1064,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={'Existe', ∅}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x | x ∈ Disponibilidad de Registros, x está en el dataset}</td>
   <td>Reporte Técnico</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>No</td>
 </tr>
@@ -1082,9 +1079,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={'Existe', ∅}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x | x ∈ Disponibilidad de Registros, x está en el dataset}</td>
   <td>Reporte Técnico</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>No</td>
 </tr>
@@ -1097,9 +1094,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={'Existe', ∅}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x | x ∈ Disponibilidad de Registros, x está en el dataset}</td>
   <td>Reporte Técnico</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>No</td>
 </tr>
@@ -1112,9 +1109,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={'Existe', ∅}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x | x ∈ Disponibilidad de Registros, x está en el dataset}</td>
   <td>Reporte Técnico</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>No</td>
 </tr>
@@ -1127,9 +1124,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={'Existe', ∅}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x | x ∈ Disponibilidad de Registros, x está en el dataset}</td>
   <td>Reporte Técnico</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>No</td>
 </tr>
@@ -1142,9 +1139,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={'Existe', ∅}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x | x ∈ Disponibilidad de Registros, x está en el dataset}</td>
   <td>Reporte Técnico</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>No</td>
 </tr>
@@ -1157,9 +1154,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={'Existe', ∅}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x | x ∈ Disponibilidad de Registros, x está en el dataset}</td>
   <td>Reporte Técnico</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>No</td>
 </tr>
@@ -1172,9 +1169,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={'Existe', ∅}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x | x ∈ Disponibilidad de Registros, x está en el dataset}</td>
   <td>Reporte Técnico</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>No</td>
 </tr>
@@ -1187,9 +1184,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={'Existe', ∅}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x | x ∈ Disponibilidad de Registros, x está en el dataset}</td>
   <td>Reporte Técnico</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>No</td>
 </tr>
@@ -1202,9 +1199,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={'Existe', ∅}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x | x ∈ Disponibilidad de Registros, x está en el dataset}</td>
   <td>Reporte Técnico</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>No</td>
 </tr>
@@ -1217,9 +1214,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={'Existe', ∅}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x | x ∈ Disponibilidad de Registros, x está en el dataset}</td>
   <td>Reporte Técnico</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>No</td>
 </tr>
@@ -1232,9 +1229,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={'Existe', ∅}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x | x ∈ Disponibilidad de Registros, x está en el dataset}</td>
   <td>Reporte Técnico</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>No</td>
 </tr>
@@ -1247,9 +1244,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={'Existe', ∅}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x | x ∈ Disponibilidad de Registros, x está en el dataset}</td>
   <td>Reporte Técnico</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>No</td>
 </tr>
@@ -1262,9 +1259,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={'Existe', ∅}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x | x ∈ Disponibilidad de Registros, x está en el dataset}</td>
   <td>Reporte Técnico</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>No</td>
 </tr>
@@ -1277,9 +1274,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={'Existe', ∅}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x | x ∈ Disponibilidad de Registros, x está en el dataset}</td>
   <td>Reporte Técnico</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>No</td>
 </tr>
@@ -1292,9 +1289,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={x | x ∈ Códigos de Sonda}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x | x ∈ Códigos de Sonda, x está en el dataset}</td>
   <td>Reporte Operacional</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>No</td>
 </tr>
@@ -1307,9 +1304,9 @@
   <td><span class="badge cualitativa">Cualitativa</span></td>
   <td>Nominal</td>
   <td class="formula-celda">D={x | x ∈ Nombres de Sonda}</td>
-  <td class="formula-celda">R ⊆ D</td>
+  <td class="formula-celda">R={x | x ∈ Nombres de Sonda, x está en el dataset}</td>
   <td>Reporte Operacional</td>
-  <td>Ninguna</td>
+  <td>-</td>
   <td>Nominal</td>
   <td>No</td>
 </tr>
@@ -1359,7 +1356,7 @@
                     <td>OPERADOR (Texto)</td><td>OPERADOR</td><td>N/A</td><td>N/A</td><td>N/A</td><td>Empresa Nacional Estatal</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td><a href="https://rpubs.com/CalebY12/1435209" target="_blank">Ver en Rpubs</a></td>
                 </tr>
                 <tr class="fila-identificacion">
-                    <td>ESTADO (Texto)</td><td>ESTADO</td><td>N/A</td><td>N/A</td><td>N/A</td><td>Nordeste</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td><a href="https://rpubs.com/CalebY12/1435216" target="_blank">Ver en Rpubs</a></td>
+                    <td>ESTADO (Texto)</td><td>ESTADO</td><td>N/A</td><td>N/A</td><td>N/A</td><td>Nordeste</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td><a href="https://rpubs.com/CalebY12/1449913" target="_blank">Ver en Rpubs</a></td>
                 </tr>
                 <tr class="fila-identificacion">
                     <td>BACIA (Texto)</td><td>BACIA</td><td>N/A</td><td>N/A</td><td>N/A</td><td>Cuencas del Nordeste</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td><a href="https://rpubs.com/CalebY12/1441885" target="_blank">Ver en Rpubs</a></td>
@@ -1398,7 +1395,7 @@
                     <td>CONCLUSÃO (Fecha)</td><td>CONCLUSIÓN</td><td>[1922;2018]</td><td>1.990,57</td><td>1.988,00</td><td>1.986</td><td>261,71</td><td>16,18</td><td>0,81</td><td>-0,3086</td><td>-0,52</td><td>88</td><td><a href="https://rpubs.com/Ashly/1450126" target="_blank">Ver en Rpubs</a></td>
                 </tr>
                 <tr class="fila-identificacion">
-                    <td>TITULARIDADE (Texto)</td><td>TITULARIDAD</td><td>N/A</td><td>N/A</td><td>N/A</td><td>Público</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td><a href="https://rpubs.com/CalebY12/1407974" target="_blank">Ver en Rpubs</a></td>
+                    <td>TITULARIDADE (Texto)</td><td>TITULARIDAD</td><td>N/A</td><td>N/A</td><td>N/A</td><td>Público</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td><a href="https://rpubs.com/CalebY12/1449924" target="_blank">Ver en Rpubs</a></td>
                 </tr>
                 <tr class="fila-identificacion">
                     <td>LATITUD_BASE_DD (Numérico)</td><td>LATITUD BASE</td><td>[-32,93;4,53]</td><td>-11,41</td><td>-10,71</td><td>-11,7</td><td>39,5</td><td>6,28</td><td>55,06</td><td>-0,6504</td><td>-0,51</td><td>810[-32,93;-23,71]</td><td><a href="https://rpubs.com/Leonardo2/1442519" target="_blank">Ver en Rpubs</a></td>
@@ -1453,7 +1450,7 @@
             <div class="tarjeta-v-bottom">
                 <h4>ESTADO</h4>
                 <p>Ubicación Geográfica</p>
-                <a href="https://rpubs.com/CalebY12/1435216" class="btn-tarjeta-v">Ver Detalles</a>
+                <a href="https://rpubs.com/CalebY12/1449913" class="btn-tarjeta-v">Ver Detalles</a>
             </div>
         </div>
         <div class="tarjeta-v">
@@ -1469,7 +1466,7 @@
             <div class="tarjeta-v-bottom">
                 <h4>TITULARIDAD</h4>
                 <p>Derechos de concesión</p>
-                <a href="https://rpubs.com/CalebY12/1407974" class="btn-tarjeta-v">Ver Detalles</a>
+                <a href="https://rpubs.com/CalebY12/1449924" class="btn-tarjeta-v">Ver Detalles</a>
             </div>
         </div>
         <div class="tarjeta-v">
