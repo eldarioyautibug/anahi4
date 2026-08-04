@@ -374,13 +374,13 @@
         </div>
         <h3>Muestra</h3>
         <p>
-          <strong>Textual:</strong> Conjunto de 29.575 pozos de hidrocarburos registrados en Brasil y considerados en la base de datos para el período comprendido entre 1940 y 2018.
+          <strong>Textual:</strong> Conjunto de 29.575 pozos de hidrocarburos registrados en Brasil y considerados en el conjunto de datos para el período comprendido entre 1940 y 2018.
         </p>
 
         <div class="caja-simbolico">
-          <span class="etiqueta-simbolico">Simbólico</span>
+          <span class="etiqueta-simbolico">SIMBÓLICO</span>
           <span class="formula-simbolico">
-            n = {Xᵢ ∈ P | 1940 ≤ Año(Xᵢ) ≤ 2018} <br>
+            M = {x | x ∈ Pozos ∧ País(x) = "Brasil" ∧ 1940 ≤ Año(x) ≤ 2018} <br>
             n = 29,575
           </span>
         </div>
@@ -1817,6 +1817,8 @@
 
             <!-- Flecha bajando desde paso 3 a paso 4 -->
             <div class="ml-fila ml-fila-conector">
+              <div class="ml-espacio"></div>
+              <div class="ml-espacio"></div>
               <div class="ml-espacio"></div>
               <div class="ml-espacio"></div>
               <div class="ml-flecha-v-right">↓</div>
