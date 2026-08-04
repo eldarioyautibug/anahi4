@@ -785,7 +785,7 @@ table.tabla-datos,.tabla-profesional-final{ width:100%; border-collapse:collapse
   color:var(--teal-soft); margin:8px 0 20px;
   display:flex; align-items:center; gap:14px;
 }
-.var-subtitulo::after{ content:""; flex:1; height:1px; background:var(--border-strong); }
+.var-subtitulo::before, .var-subtitulo::after{ content:""; flex:1; height:1px; background:var(--border-strong); }
 
 .var-divisor{
   border:0; height:1px; margin:56px 0;
@@ -872,7 +872,7 @@ body {
 /* ===== TARJETAS MODELO CON IMAGEN ===== */
 .grid-modelo-imagen {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 22px;
   padding: 10px 40px 30px;
   max-width: 1300px;
