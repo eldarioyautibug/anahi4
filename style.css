@@ -1233,6 +1233,16 @@ body {
 
 .ml-flecha-v-right { grid-column: 3; }
 .ml-flecha-v-left  { grid-column: 1; }
+.ml-flecha-v-derecha { 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: rgba(255,255,255,0.25);
+  height: 100%;
+  animation: pulse-arrow 2s ease-in-out infinite;
+  grid-column: 5;
+}
 
 .ml-espacio { visibility: hidden; }
 
