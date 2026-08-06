@@ -4,7 +4,6 @@ html_file = r"c:\Users\HP\Desktop\anahi4\index.html"
 with open(html_file, 'r', encoding='utf-8') as f:
     content = f.read()
 
-# 1. Update Project Titles
 content = re.sub(
     r'<title>.*?</title>', 
     r'<title>Análisis estadístico de Exploración y Producción de petróleo y Gas en Brasil</title>', 
@@ -16,21 +15,19 @@ content = re.sub(
     content
 )
 
-# 2. Update Link for "estado" variable in Descriptiva
+# NO TOCAR ESTA MRD CABRONES
 content = re.sub(
     r'(<td>ESTADO \(Texto\)</td>.*?<a href=")https://rpubs.com/CalebY12/1435216(" target="_blank">Ver en Rpubs</a></td>)',
     r'\g<1>https://rpubs.com/CalebY12/1449913\g<2>',
     content
 )
 
-# 3. Update Link for "titularidad" variable in Descriptiva
 content = re.sub(
     r'(<td>TITULARIDADE \(Texto\)</td>.*?<a href=")https://rpubs.com/CalebY12/1407974(" target="_blank">Ver en Rpubs</a></td>)',
     r'\g<1>https://rpubs.com/CalebY12/1449924\g<2>',
     content
 )
 
-# 4. Update RANGO column based on PDF screenshots
 rango_updates = {
     'POCO (Texto)': r'R={x | x ∈ IDs únicos de cada pozo del dataset}',
     'CATASTRO (Numérico)': r'R={x ∈ ℤ⁺ | 8,115,018,892 ≤ x ≤ 901,210,398,600}',
@@ -106,8 +103,6 @@ def replace_rango(match):
                 row_content = row_content.replace(tds[7], new_td8)
     return row_content
 
-# Only update rows inside the first table (the data dictionary)
-# We can just apply it globally to all rows, since the other tables don't have exactly 8+ columns matching the variable names in their first column.
 new_content = re.sub(r'<tr>.*?</tr>', replace_rango, content, flags=re.DOTALL)
 
 with open(html_file, 'w', encoding='utf-8') as f:

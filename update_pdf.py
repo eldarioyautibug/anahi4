@@ -174,7 +174,6 @@ R={x | x ∈ Nombres de Sonda}	Reporte Operacional	-	Nominal	No"""
 def parse_lines(text):
     res = []
     for line in text.strip().split('\n'):
-        # Split by tab
         parts = line.split('\t')
         res.append([p.strip() for p in parts])
     return res
@@ -186,19 +185,17 @@ l3 = parse_lines(part3)
 tbody = []
 for r1, r2, r3 in zip(l1, l2, l3):
     row = "    <tr>\n"
-    # r1: POCO (Texto)	POZO	-
     row += f"      <td>{r1[0]}</td>\n"
     row += f"      <td>{r1[1]}</td>\n"
     row += f"      <td>{r1[2]}</td>\n"
-    
-    # r2: Identificador único del pozo.	Cualitativa	Nominal	D={x ∣ x ∈ Etiquetas alfanuméricas de identificación de pozos}
+
+    # IDENTIFICADOR PEOR TOCAR 
     row += f"      <td>{r2[0]}</td>\n"
     badge_class = "cualitativa" if "cualitativa" in r2[1].lower() else "cuantitativa"
     row += f"      <td><span class='badge {badge_class}'>{r2[1]}</span></td>\n"
     row += f"      <td>{r2[2]}</td>\n"
     row += f"      <td class='formula-celda'>{r2[3]}</td>\n"
     
-    # r3: R={x | x ∈ IDs únicos de cada pozo del dataset}	Reporte ANP	-	Nominal	No
     row += f"      <td class='formula-celda'>{r3[0]}</td>\n"
     row += f"      <td>{r3[1]}</td>\n"
     row += f"      <td>{r3[2]}</td>\n"
@@ -214,7 +211,6 @@ with open(html_file, 'r', encoding='utf-8') as f:
     content = f.read()
 
 import re
-# Replace everything inside <tbody>...</tbody> for the table miTabla
 pattern = r'(<table class="tabla-datos" id="miTabla">\s*<thead>.*?</thead>\s*<tbody>).*?(</tbody>)'
 new_content = re.sub(pattern, r'\\1\n' + new_tbody.replace('\\', '\\\\') + r'\n\\2', content, flags=re.DOTALL)
 

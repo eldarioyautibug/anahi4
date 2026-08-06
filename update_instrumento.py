@@ -7,7 +7,6 @@ with open(html_file, 'r', encoding='utf-8') as f:
 
 original_lines = len(content.splitlines())
 
-# 1. Update Planteamiento del Problema
 old_planteamiento = """              <p>
                 Este proyecto analiza datos estadísticos de pozos petroleros en Brasil para superar
                 promedios simples y comprender su comportamiento real mediante un enfoque técnico-académico.
@@ -17,7 +16,6 @@ new_planteamiento = """              <p>
               </p>"""
 content = content.replace(old_planteamiento, new_planteamiento)
 
-# 2. Update INSTRUMENTO y UNIDAD based on PDF screenshots
 updates = {
     'POCO (Texto)': ('Reporte ANP', '-'),
     'CATASTRO (Numérico)': ('Reporte ANP', '-'),

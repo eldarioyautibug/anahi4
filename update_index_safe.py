@@ -7,15 +7,12 @@ with open(html_file, 'r', encoding='utf-8') as f:
 
 original_lines = len(content.splitlines())
 
-# 1. Update Project Titles
 content = content.replace('<title>Proyecto de Estadística</title>', '<title>Análisis estadístico de Exploración y Producción de petróleo y Gas en Brasil</title>')
 content = content.replace('<h1>Producción y Exploración de petróleo y gas en Brasil</h1>', '<h1>Análisis estadístico de Exploración y Producción de petróleo y Gas en Brasil</h1>')
 
-# 2. Update Links for "estado" and "titularidad"
 content = content.replace('1435216', '1449913')
 content = content.replace('1407974', '1449924')
 
-# 3. Update RANGO column based on PDF screenshots
 rango_updates = {
     'POCO (Texto)': r'R={x | x ∈ IDs únicos de cada pozo del dataset}',
     'CATASTRO (Numérico)': r'R={x ∈ ℤ⁺ | 8,115,018,892 ≤ x ≤ 901,210,398,600}',
@@ -79,17 +76,9 @@ rango_updates = {
 }
 
 for var_name, new_rango in rango_updates.items():
-    # We want to match exactly this structure:
-    # <td>VAR_NAME</td>
-    # ... any number of lines ...
-    # <td class="formula-celda">...</td>
-    # <td class="formula-celda">...</td>
-    # But restrict the search so it doesn't cross multiple table rows. We can limit the inner matches to not contain <tr>
+
     escaped_var = re.escape(var_name)
-    # The regex matches:
-    # Group 1: from <td>VAR_NAME</td> up to the FIRST <td class="formula-celda">...</td> and trailing spaces
-    # Group 2: the SECOND <td class="formula-celda">...</td> that we want to replace
-    # We use (?:(?!<tr>).)*? to make sure we don't accidentally match across rows
+
     pattern = (
         r"(<td>" + escaped_var + r"</td>"
         r"(?:(?!<tr>).)*?"
@@ -97,7 +86,6 @@ for var_name, new_rango in rango_updates.items():
         r"(<td class=\"formula-celda\">(?:(?!<tr>).)*?</td>)"
     )
     
-    # We need re.DOTALL so the dot matches newlines inside the row.
     content = re.sub(pattern, r'\g<1><td class="formula-celda">' + new_rango + r'</td>', content, count=1, flags=re.DOTALL)
 
 new_lines = len(content.splitlines())

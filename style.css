@@ -869,7 +869,6 @@ body {
 .goog-te-gadget { display: none !important; }
 #google_translate_element { display: none !important; }
 
-/* ===== TARJETAS MODELO CON IMAGEN ===== */
 .grid-modelo-imagen {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -955,7 +954,6 @@ body {
   color: var(--teal-soft);
 }
 
-/* ===== BLOQUE PRÓXIMAMENTE ===== */
 .proximamente-bloque {
   grid-template-columns: 1fr !important;
 }
@@ -988,7 +986,6 @@ body {
   50%      { opacity: 0.7; }
 }
 
-/* ===== TARJETAS GRID (REGRESIONES) ===== */
 .regresion-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -1087,7 +1084,6 @@ body {
   }
 }
 
-/* ===== METODOLOGÍA MACHINE LEARNING ===== */
 .ml-metodologia {
   padding: 50px 40px 10px;
   max-width: 1100px;
@@ -1122,7 +1118,6 @@ body {
   align-items: stretch;
 }
 
-/* Fila de pasos */
 .ml-fila {
   display: grid;
   grid-template-columns: 1fr 40px 1fr 40px 1fr;
@@ -1130,19 +1125,16 @@ body {
   gap: 0;
 }
 
-/* Conector vertical */
 .ml-fila-conector {
   height: 44px;
 }
 
-/* Fila final (paso 7 centrado debajo del primero) */
 .ml-fila-final {
   grid-template-columns: 1fr;
   justify-items: start;
   padding-left: 0;
 }
 
-/* Paso individual */
 .ml-paso {
   display: flex;
   flex-direction: column;
@@ -1180,7 +1172,6 @@ body {
   flex-shrink: 0;
 }
 
-/* Colores de cada paso */
 .ml-paso-teal   { background: linear-gradient(135deg,rgba(33,197,181,0.22),rgba(33,197,181,0.06)); border-color: rgba(33,197,181,0.35); }
 .ml-paso-teal   .ml-paso-icono { color: #21c5b5; }
 
@@ -1202,14 +1193,12 @@ body {
 .ml-paso-green  { background: linear-gradient(135deg,rgba(80,220,120,0.22),rgba(80,220,120,0.06)); border-color: rgba(80,220,120,0.35); }
 .ml-paso-green  .ml-paso-icono { color: #6aefaa; }
 
-/* Paso final ancho */
 .ml-paso-final {
   width: 100%;
   max-width: 260px;
   padding: 20px 20px;
 }
 
-/* Flechas horizontales */
 .ml-flecha-h {
   display: flex;
   align-items: center;
@@ -1219,7 +1208,6 @@ body {
   animation: pulse-arrow 2s ease-in-out infinite;
 }
 
-/* Flechas verticales */
 .ml-flecha-v-right,
 .ml-flecha-v-left {
   display: flex;
@@ -1262,4 +1250,4 @@ body {
   .ml-fila-final { justify-items: stretch; }
   .ml-metodologia { padding: 30px 16px 10px; }
 }
-
+
